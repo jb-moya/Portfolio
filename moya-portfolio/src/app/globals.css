@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root[data-theme="light"]  {
+        --color-zest-50: 28deg 88% 96%;
+        --color-zest-100: 28deg 70% 87%;
+        --color-zest-200: 34deg 73% 76%;
+        --color-zest-300: 35deg 71% 65%;
+        --color-zest-400: 25deg 65% 54%;
+        --color-zest-500: 17deg 62% 50%;
+        --color-zest-600: 13deg 65% 45%;
+        --color-zest-700: 7deg 64% 38%;
+        --color-zest-800: 7deg 56% 31%;
+        --color-zest-900: 8deg 53% 27%;
+        --color-zest-950: 8deg 74% 14%;
+    }
+
+    :root[data-theme="dark"] {
+        --color-zest-950: 28deg 88% 96%;
+        --color-zest-900: 28deg 70% 87%;
+        --color-zest-800: 34deg 73% 76%;
+        --color-zest-700: 35deg 71% 65%;
+        --color-zest-600: 25deg 65% 54%;
+        --color-zest-500: 17deg 62% 50%;
+        --color-zest-400: 13deg 65% 45%;
+        --color-zest-300: 7deg 64% 38%;
+        --color-zest-200: 7deg 56% 31%;
+        --color-zest-100: 8deg 53% 27%;
+        --color-zest-50: 8deg 74% 14%;
+    }
+}
