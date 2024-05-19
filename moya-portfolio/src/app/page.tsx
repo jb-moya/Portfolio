@@ -11,6 +11,7 @@ import {
     SiMongodb,
 } from "react-icons/si";
 import { AiFillHtml5 } from "react-icons/ai";
+import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { FaReact } from "react-icons/fa";
 
 export default function Home() {
@@ -25,9 +26,11 @@ export default function Home() {
     };
 
     return (
-        <main className="flex min-h-screen text-zest-950 flex-col items-center justify-between max-w-7xl mx-auto">
-            <button onClick={toggleTheme}>dark</button>
-            <div className="bg-black aspect-4/3-y w-2/12">
+        <main className="flex min-h-screen text-nature-text-content flex-col items-center justify-between max-w-7xl mx-auto">
+            <button onClick={toggleTheme} className="drop-shadow-accent-1 text-3xl">
+                {theme === "dark"? <MdDarkMode /> : <MdOutlineLightMode />}
+            </button>
+            <div className="bg-nature-bg-2 aspect-4/3-y w-2/12">
                 <Image
                     src="/images/logo.png"
                     width={100}
@@ -36,17 +39,17 @@ export default function Home() {
                 />
             </div>
 
-            <div className="w-full p-2 flex text-center text-2xl space-x-4 flex-wrap bg-zest-50">
-                <SiMongodb />
-                <SiTypescript />
-                <SiSass />
-                <SiTailwindcss />
-                <SiNextdotjs />
-                <AiFillHtml5 />
-                <FaReact />
-                <DiNodejsSmall />
-                <DiJavascript1 />
-                <DiCss3 />
+            <div className="w-full p-2 flex text-center text-3xl space-x-4 flex-wrap bg-nature-bg-1">
+                <SiMongodb className="animate-wiggle drop-shadow-accent-1" />
+                <SiTypescript className="animate-wiggle drop-shadow-accent-1" />
+                <SiSass className="animate-wiggle drop-shadow-accent-1" />
+                <SiTailwindcss className="animate-wiggle drop-shadow-accent-1" />
+                <SiNextdotjs className="animate-wiggle drop-shadow-accent-1" />
+                <AiFillHtml5 className="animate-wiggle drop-shadow-accent-1" />
+                <FaReact className="animate-wiggle drop-shadow-accent-1" />
+                <DiNodejsSmall className="animate-wiggle drop-shadow-accent-1" />
+                <DiJavascript1 className="animate-wiggle drop-shadow-accent-1" />
+                <DiCss3 className="animate-wiggle drop-shadow-accent-1" />
             </div>
         </main>
     );

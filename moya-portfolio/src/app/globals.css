@@ -3,31 +3,125 @@
 @tailwind utilities;
 
 @layer base {
-    :root[data-theme="light"]  {
-        --color-zest-50: 28deg 88% 96%;
-        --color-zest-100: 28deg 70% 87%;
-        --color-zest-200: 34deg 73% 76%;
-        --color-zest-300: 35deg 71% 65%;
-        --color-zest-400: 25deg 65% 54%;
-        --color-zest-500: 17deg 62% 50%;
-        --color-zest-600: 13deg 65% 45%;
-        --color-zest-700: 7deg 64% 38%;
-        --color-zest-800: 7deg 56% 31%;
-        --color-zest-900: 8deg 53% 27%;
-        --color-zest-950: 8deg 74% 14%;
+    :root[data-theme="light"] {
+        --bg-2: 56 85 56; /* rgb(56 85 56) */
+        --content: 24 47 24; /* rgb(24 47 24) */
+        --bg-1: 255 252 240; /* rgb(255 252 240) */
+        --accent-1: 219 158 85; /* rgb(219 158 85) */
+        --accent-2: 157 93 38; /* rgb(157 93 38) */
     }
 
     :root[data-theme="dark"] {
-        --color-zest-950: 28deg 88% 96%;
-        --color-zest-900: 28deg 70% 87%;
-        --color-zest-800: 34deg 73% 76%;
-        --color-zest-700: 35deg 71% 65%;
-        --color-zest-600: 25deg 65% 54%;
-        --color-zest-500: 17deg 62% 50%;
-        --color-zest-400: 13deg 65% 45%;
-        --color-zest-300: 7deg 64% 38%;
-        --color-zest-200: 7deg 56% 31%;
-        --color-zest-100: 8deg 53% 27%;
-        --color-zest-50: 8deg 74% 14%;
+        --bg-2: 56 85 56; /* rgb(56 85 56) */
+        --bg-1: 24 47 24; /* rgb(24 47 24) */
+        --content: 255 252 240; /* rgb(255 252 240) */
+        --accent-1: 219 158 85; /* rgb(219 158 85) */
+        --accent-2: 157 93 38; /* rgb(157 93 38) */
     }
+    /* :root[data-theme="light"] { */
+    /* --dark-moss-green: 74deg 32%, 32%; */
+    /* --bg-2: 74deg 32% 32%; */
+
+    /* --pakistan-green: 88deg 38%, 15%; */
+    /* --content: 88deg 38% 15%; */
+
+    /* --cornsilk: 52deg 94%, 94%; */
+    /* --bg-1: 52deg 94% 94%; */
+
+    /* --earth-yellow: 32deg 65%, 62%; */
+    /* --accent-1: 32deg 65% 62%; */
+
+    /* --tigers-eye: 28deg 67%, 44%; */
+    /* --accent-2: 28deg 67% 44%; */
+    /* } */
+
+    /* :root[data-theme="dark"] { */
+    /* --dark-moss-green: 74deg 32%, 32%; */
+    /* --bg-2: 74deg 32% 32%; */
+
+    /* --pakistan-green: 88deg 38%, 15%; */
+    /* --bg-1: 88deg 38% 15%; */
+
+    /* --cornsilk: 52deg 94%, 94%; */
+    /* --content: 52deg 94% 94%; */
+
+    /* ---earth-yellow: 32deg 65%, 62%; */
+    /* ---accent-1: 32deg 65% 62%; */
+
+    /* --tigers-eye: 28deg 67%, 44%; */
+    /* --accent-2: 28deg 67% 44%; */
+    /* } */
 }
+
+/* SCSS Gradient */
+/* $gradient-top: linear-gradient(
+    0deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-right: linear-gradient(
+    90deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-bottom: linear-gradient(
+    180deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-left: linear-gradient(
+    270deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-top-right: linear-gradient(
+    45deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-bottom-right: linear-gradient(
+    135deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-top-left: linear-gradient(
+    225deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-bottom-left: linear-gradient(
+    315deg,
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+);
+$gradient-radial: radial-gradient(
+    #606c38ff,
+    #283618ff,
+    #fefae0ff,
+    #dda15eff,
+    #bc6c25ff
+); */
