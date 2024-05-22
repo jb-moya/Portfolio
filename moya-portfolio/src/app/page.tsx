@@ -1,56 +1,88 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { DiJavascript1, DiCss3, DiNodejsSmall } from "react-icons/di";
+import { dancingScript, firaCode, inter } from "./fonts";
+import classNames from "classnames";
 import {
-    SiTypescript,
-    SiSass,
-    SiTailwindcss,
-    SiNextdotjs,
-    SiMongodb,
-} from "react-icons/si";
-import { AiFillHtml5 } from "react-icons/ai";
-import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
-import { FaReact } from "react-icons/fa";
+    TypewriterEffectSmooth,
+    TypewriterEffect,
+} from "./_components/ui/typewrite-effect";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useSectionObserver } from "./_components/navbarSectionObserver";
 
 export default function Home() {
-    const [theme, setTheme] = useState("light");
+    const sectionRef = useSectionObserver({
+        sectionName: "Home",
+    });
 
+    const pathname = usePathname();
+
+    const words = [
+        {
+            text: "<JB",
+            className: "text-7xl drop-shadow-lg",
+        },
+        {
+            text: "Vhert",
+            className: "text-7xl drop-shadow-lg",
+        },
+        {
+            text: "Moya",
+            className: "text-7xl drop-shadow-lg",
+        },
+        {
+            text: "/>",
+            className: "text-7xl drop-shadow-lg",
+        },
+    ];
     useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-    };
+        console.log("pathname", pathname);
+    }, [pathname]);
 
     return (
-        <main className="flex min-h-screen text-nature-text-content flex-col items-center justify-between max-w-7xl mx-auto">
-            <button onClick={toggleTheme} className="drop-shadow-accent-1 text-3xl">
-                {theme === "dark"? <MdDarkMode /> : <MdOutlineLightMode />}
-            </button>
-            <div className="bg-nature-bg-2 aspect-4/3-y w-2/12">
-                <Image
-                    src="/images/logo.png"
-                    width={100}
-                    height={100}
-                    alt="profile"
-                />
+        <section
+            id="home"
+            className="flex h-[850px] text-custom-content-2 flex-col items-center justify-between mx-auto"
+            ref={sectionRef}
+        >
+            <div className="w-full my-auto flex flex-col space-x-4 space-y-4 justify-center">
+                <div className="bg-custom-bg-2 aspect-4/3-y w-2/12 box-border self-center rounded shadow-md">
+                    <Image
+                        src="/images/logo.png"
+                        width={100}
+                        height={100}
+                        alt="profile"
+                    />
+                </div>
+                <div className="text-center text-custom-content-2">
+                    <div>
+                        <span className="text-2xl font-medium">
+                            Hi, I&apos;m
+                        </span>
+                        <span
+                            className={classNames(
+                                "text-custom-accent-1",
+                                firaCode.className
+                            )}
+                        >
+                            {/* JB Vhert Moya */}
+                            <TypewriterEffect
+                                words={words}
+                                className="justify-center font-extrabold"
+                            />
+                        </span>
+                    </div>
+                    <div
+                        className={classNames(
+                            "text-2xl font-medium mt-4",
+                            inter.className
+                        )}
+                    >
+                        I am currently a final year undergraduate student
+                    </div>
+                </div>
             </div>
-
-            <div className="w-full p-2 flex text-center text-3xl space-x-4 flex-wrap bg-nature-bg-1">
-                <SiMongodb className="animate-wiggle drop-shadow-accent-1" />
-                <SiTypescript className="animate-wiggle drop-shadow-accent-1" />
-                <SiSass className="animate-wiggle drop-shadow-accent-1" />
-                <SiTailwindcss className="animate-wiggle drop-shadow-accent-1" />
-                <SiNextdotjs className="animate-wiggle drop-shadow-accent-1" />
-                <AiFillHtml5 className="animate-wiggle drop-shadow-accent-1" />
-                <FaReact className="animate-wiggle drop-shadow-accent-1" />
-                <DiNodejsSmall className="animate-wiggle drop-shadow-accent-1" />
-                <DiJavascript1 className="animate-wiggle drop-shadow-accent-1" />
-                <DiCss3 className="animate-wiggle drop-shadow-accent-1" />
-            </div>
-        </main>
+        </section>
     );
 }

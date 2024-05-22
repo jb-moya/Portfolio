@@ -1,23 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+    scroll-behavior: smooth;
+}
 
 @layer base {
     :root[data-theme="light"] {
-        --bg-2: 56 85 56; /* rgb(56 85 56) */
-        --content: 24 47 24; /* rgb(24 47 24) */
-        --bg-1: 255 252 240; /* rgb(255 252 240) */
-        --accent-1: 219 158 85; /* rgb(219 158 85) */
-        --accent-2: 157 93 38; /* rgb(157 93 38) */
+        /* --bg-2: 56 85 56; 
+        --content: 24 47 24;
+        --bg-1: 255 252 240; 
+        --accent-1: 219 158 85; 
+        --accent-2: 157 93 38;  */
+
+        --bg-1: 244 162 97;
+        --bg-2: 230 127 122;
+        --bg-3: 189 109 142;
+        --content-1: 104 68 117;
+        /* 684475 */
+        --content-2: 43 53 85;
+        /* 2B3555 */
+        --accent-1: 17 35 47;
+        /* 11232F */
+
+        /* --bg-1: 218 215 205; #dad7cdff */
+        /* --bg-2: 163 177 138; #a3b18aff */
+        /* --bg-3: 88 129 87; #588157ff */
+        /* --content-1: 58 90 64; #3a5a40ff */
+        /* --content-2: 52 78 65; #344e41ff */
+        /* --accent-1: 255 111 60; #ff6f3c */
     }
 
     :root[data-theme="dark"] {
-        --bg-2: 56 85 56; /* rgb(56 85 56) */
-        --bg-1: 24 47 24; /* rgb(24 47 24) */
-        --content: 255 252 240; /* rgb(255 252 240) */
-        --accent-1: 219 158 85; /* rgb(219 158 85) */
-        --accent-2: 157 93 38; /* rgb(157 93 38) */
+        --accent-1: 244 162 97;
+        --content-2: 230 127 122;
+        --content-1: 189 109 142;
+        --bg-3: 104 68 117;
+        --bg-2: 43 53 85;
+        --bg-1: 17 35 47;
+
+        /* --content-2: 218 215 205;
+        --content-1: 163 177 138;
+        --bg-3: 88 129 87;
+        --bg-2: 58 90 64;
+        --bg-1: 20 22 21;
+        --accent-1: 255 111 60; */
+
+        /* --bg-2: 56 85 56;
+        --bg-1: 24 47 24;
+        --content: 255 252 240;
+        --accent-1: 219 158 85;
+        --accent-2: 157 93 38;  */
     }
+
+    /* --timberwolf: #dad7cdff;
+--sage: #a3b18aff;
+--fern-green: #588157ff;
+--hunter-green: #3a5a40ff;
+--brunswick-green: #344e41ff;
+
+--timberwolf: hsla(46, 15%, 83%, 1);
+--sage: hsla(82, 20%, 62%, 1);
+--fern-green: hsla(119, 19%, 42%, 1);
+--hunter-green: hsla(131, 22%, 29%, 1);
+--brunswick-green: hsla(150, 20%, 25%, 1);
+
+$timberwolf: #dad7cdff;
+$sage: #a3b18aff;
+$fern-green: #588157ff;
+$hunter-green: #3a5a40ff;
+$brunswick-green: #344e41ff;
+
+$timberwolf: hsla(46, 15%, 83%, 1);
+$sage: hsla(82, 20%, 62%, 1);
+$fern-green: hsla(119, 19%, 42%, 1);
+$hunter-green: hsla(131, 22%, 29%, 1);
+$brunswick-green: hsla(150, 20%, 25%, 1);
+
+$timberwolf: rgba(218, 215, 205, 1);
+$sage: rgba(163, 177, 138, 1);
+$fern-green: rgba(88, 129, 87, 1);
+$hunter-green: rgba(58, 90, 64, 1);
+$brunswick-green: rgba(52, 78, 65, 1);
+
+$gradient-top: linear-gradient(0deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-right: linear-gradient(90deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-bottom: linear-gradient(180deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-left: linear-gradient(270deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-top-right: linear-gradient(45deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-bottom-right: linear-gradient(135deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-top-left: linear-gradient(225deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-bottom-left: linear-gradient(315deg, #dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff);
+$gradient-radial: radial-gradient(#dad7cdff, #a3b18aff, #588157ff, #3a5a40ff, #344e41ff); */
+
     /* :root[data-theme="light"] { */
     /* --dark-moss-green: 74deg 32%, 32%; */
     /* --bg-2: 74deg 32% 32%; */
@@ -45,8 +120,8 @@
     /* --cornsilk: 52deg 94%, 94%; */
     /* --content: 52deg 94% 94%; */
 
-    /* ---earth-yellow: 32deg 65%, 62%; */
-    /* ---accent-1: 32deg 65% 62%; */
+    /* --earth-yellow: 32deg 65%, 62%; */
+    /* --accent-1: 32deg 65% 62%; */
 
     /* --tigers-eye: 28deg 67%, 44%; */
     /* --accent-2: 28deg 67% 44%; */
