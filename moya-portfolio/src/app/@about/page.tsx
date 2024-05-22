@@ -17,6 +17,27 @@ export default function AboutPage() {
                 transforming ideas into functional, efficient, and visually
                 appealing web experiences.
             </p>
+            <p>
+                I am a dedicated software developer with a strong passion for
+                creating innovative solutions for the web. With a focus on
+                building high-quality, user-friendly applications, I thrive on
+                transforming ideas into functional, efficient, and visually
+                appealing web experiences.
+            </p>
+            <p>
+                I am a dedicated software developer with a strong passion for
+                creating innovative solutions for the web. With a focus on
+                building high-quality, user-friendly applications, I thrive on
+                transforming ideas into functional, efficient, and visually
+                appealing web experiences.
+            </p>
+            <p>
+                I am a dedicated software developer with a strong passion for
+                creating innovative solutions for the web. With a focus on
+                building high-quality, user-friendly applications, I thrive on
+                transforming ideas into functional, efficient, and visually
+                appealing web experiences.
+            </p>
         </section>
     );
 }

@@ -3,6 +3,7 @@
 import { useDispatch } from "react-redux";
 import { setMenuState, resetMenuState } from "../../lib/features/navbarSlice";
 import { SectionIntersectionObserver } from "./SectionIntersectionObserver";
+import { useRouter } from "next/navigation";
 
 export function useSectionObserver({
     sectionName,
@@ -12,6 +13,7 @@ export function useSectionObserver({
     options?: {};
 }) {
     const dispatch = useDispatch();
+    const router = useRouter();
 
     const handleIntersection = () => {
         dispatch(resetMenuState());
@@ -21,6 +23,7 @@ export function useSectionObserver({
                 value: true,
             })
         );
+        // router.push(`/#${sectionName.toLowerCase()}`);
     };
 
     const sectionRef = SectionIntersectionObserver({

@@ -20,15 +20,15 @@ export default function Home() {
 
     const words = [
         {
-            text: "<JB",
+            text: "<JB ",
+            className: "text-7xl drop-shadow-lg -z-50",
+        },
+        {
+            text: "Vhert ",
             className: "text-7xl drop-shadow-lg",
         },
         {
-            text: "Vhert",
-            className: "text-7xl drop-shadow-lg",
-        },
-        {
-            text: "Moya",
+            text: "Moya ",
             className: "text-7xl drop-shadow-lg",
         },
         {
@@ -62,11 +62,10 @@ export default function Home() {
                         </span>
                         <span
                             className={classNames(
-                                "text-custom-accent-1",
-                                firaCode.className
+                                "text-custom-accent-1 -z-50",
+                                inter.className
                             )}
                         >
-                            {/* JB Vhert Moya */}
                             <TypewriterEffect
                                 words={words}
                                 className="justify-center font-extrabold"

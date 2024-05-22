@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { RootState } from "@/lib/store";
 import classNames from "classnames";
-
+import { Button } from "./ui/moving-border";
 const Navbar = () => {
     const { menuStates } = useSelector((state: RootState) => state.navbar);
 
@@ -32,7 +32,7 @@ const Navbar = () => {
         contacts: {
             name: "Contacts",
             href: "#contacts",
-        }
+        },
     };
 
     return (
@@ -40,15 +40,18 @@ const Navbar = () => {
             <nav className="max-w-7xl mx-auto py-3 text-custom-content-2 sticky top-0 h-fit">
                 <div className="flex space-x-6 justify-center">
                     {Object.entries(menus).map(([key, menu]) => (
-                        <Link
+                        <Button
                             key={key}
-                            href={menu.href}
+                            borderClassName={classNames({
+                                hidden: !menuStates[menu.name],
+                            })}
                             className={classNames({
-                                "border-2": menuStates[menu.name],
+                                "border-[1px] border-custom-bg-3 border-opacity-30":
+                                    menuStates[menu.name],
                             })}
                         >
-                            {menu.name}
-                        </Link>
+                            <Link href={menu.href} className="w-full h-full">{menu.name}</Link>
+                        </Button>
                     ))}
                     <button
                         onClick={toggleTheme}

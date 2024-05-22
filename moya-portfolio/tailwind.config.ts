@@ -19,7 +19,8 @@ const config: Config = {
     theme: {
         extend: {
             backgroundImage: {
-                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+                "moving-border":
+                    "radial-gradient(rgb(var(--content-2)) 40%,transparent 60%)",
                 "gradient-conic":
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
@@ -28,7 +29,7 @@ const config: Config = {
                 "4/3-y": "3 / 4",
             },
             colors: {
-                "custom": {
+                custom: {
                     "bg-1": "rgb(var(--bg-1) / <alpha-value>)",
                     "bg-2": "rgb(var(--bg-2) / <alpha-value>)",
                     "bg-3": "rgb(var(--bg-3) / <alpha-value>)",
@@ -60,7 +61,7 @@ const config: Config = {
         },
     },
     plugins: [
-        addVariablesForColors,
+        // addVariablesForColors,
         function ({ matchUtilities, theme }: any) {
             matchUtilities(
                 {
