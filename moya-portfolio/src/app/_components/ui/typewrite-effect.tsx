@@ -1,8 +1,9 @@
 "use client";
 import { cn } from "@/../utils/cn";
+import classNames from "classnames";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
-
+import { Highlight } from "./hero-highlight";
 export const TypewriterEffect = ({
     words,
     className,
@@ -22,6 +23,8 @@ export const TypewriterEffect = ({
             text: word.text.split(""),
         };
     });
+
+    console.log("wordsArray", wordsArray);
 
     const [scope, animate] = useAnimate();
     const isInView = useInView(scope);
@@ -48,17 +51,17 @@ export const TypewriterEffect = ({
             <motion.div ref={scope} className="inline">
                 {wordsArray.map((word, idx) => {
                     return (
-                        <div key={`word-${idx}`} className="inline-block">
+                        <div key={`word-${idx}`} className={cn("inline-block pr-4")}>
                             {word.text.map((char, index) => (
                                 <motion.span
                                     initial={{}}
                                     key={`char-${index}`}
                                     className={cn(
-                                        `text-custom-content-2 opacity-1 hidden`,
+                                        `text-custom-bg-2 opacity-1 hidden`,
                                         word.className
                                     )}
                                 >
-                                    {char}
+                                    {char} 
                                 </motion.span>
                             ))}
                             &nbsp;
@@ -70,29 +73,32 @@ export const TypewriterEffect = ({
     };
     return (
         <div
+            // data-opposite-theme="dark"
             className={cn(
-                "text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold",
+                // "text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold",
                 className
             )}
         >
-            {renderWords()}
-            <motion.span
-                initial={{
-                    opacity: 0,
-                }}
-                animate={{
-                    opacity: 1,
-                }}
-                transition={{
-                    duration: 0.8,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                }}
-                className={cn(
-                    "inline-block drop-shadow-lg rounded-sm w-[8px] h-6 md:h-6 lg:h-16 bg-custom-content-2",
-                    cursorClassName
-                )}
-            ></motion.span>
+            <Highlight>
+                {renderWords()}
+                <motion.span
+                    initial={{
+                        opacity: 0,
+                    }}
+                    animate={{
+                        opacity: 1,
+                    }}
+                    transition={{
+                        duration: 0.8,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                    }}
+                    className={cn(
+                        "inline-block absolute drop-shadow-lg rounded-sm w-[4px] md:w-2 h-9 md:h-12 lg:h-20 bg-custom-bg-2",
+                        cursorClassName
+                    )}
+                ></motion.span>
+            </Highlight>
         </div>
     );
 };
@@ -126,7 +132,7 @@ export const TypewriterEffectSmooth = ({
                                 <span
                                     key={`char-${index}`}
                                     className={cn(
-                                        `dark:text-white text-custom-content-2`,
+                                        `text-custom-content-2`,
                                         word.className
                                     )}
                                 >
@@ -180,7 +186,7 @@ export const TypewriterEffectSmooth = ({
                     repeatType: "reverse",
                 }}
                 className={cn(
-                    "block rounded-sm w-[4px] h-4 sm:h-6 xl:h-16 bg-custom-content-2",
+                    "block rounded-sm w-[5px] h-4 sm:h-6 xl:h-16 bg-custom-content-2",
                     cursorClassName
                 )}
             ></motion.span>

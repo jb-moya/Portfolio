@@ -21,6 +21,8 @@ const config: Config = {
             backgroundImage: {
                 "moving-border":
                     "radial-gradient(rgb(var(--content-2)) 40%,transparent 60%)",
+                "moving-border-2":
+                    "radial-gradient(rgb(var(--bg-2)) 40%,transparent 60%)",
                 "gradient-conic":
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
@@ -30,21 +32,44 @@ const config: Config = {
             },
             colors: {
                 custom: {
+                    "static-1": "rgb(var(--s-c-1))",
+                    "static-2": "rgb(var(--s-c-2))",
+                    "static-3": "rgb(var(--s-c-3))",
+                    "static-4": "rgb(var(--s-c-4))",
+                    "static-5": "rgb(var(--s-c-5))",
+                    "static-6": "rgb(var(--s-c-6))",
+
                     "bg-1": "rgb(var(--bg-1) / <alpha-value>)",
                     "bg-2": "rgb(var(--bg-2) / <alpha-value>)",
                     "bg-3": "rgb(var(--bg-3) / <alpha-value>)",
                     "content-1": "rgb(var(--content-1) / <alpha-value>)",
                     "content-2": "rgb(var(--content-2) / <alpha-value>)",
                     "accent-1": "rgb(var(--accent-1) / <alpha-value>)",
+
+                    "opp-bg-1": "rgb(var(--opp-bg-1) / <alpha-value>)",
+                    "opp-bg-2": "rgb(var(--opp-bg-2) / <alpha-value>)",
+                    "opp-bg-3": "rgb(var(--opp-bg-3) / <alpha-value>)",
+                    "opp-content-1":
+                        "rgb(var(--opp-content-1) / <alpha-value>)",
+                    "opp-content-2":
+                        "rgb(var(--opp-content-2) / <alpha-value>)",
+                    "opp-accent-1": "rgb(var(--opp-accent-1) / <alpha-value>)",
                 },
             },
             dropShadow: {
-                "bg-1": "0 1px 0px rgb(var(--bg-1))",
-                "bg-2": "0 1px 0px rgb(var(--bg-2))",
-                "bg-3": "0 1px 0px rgb(var(--bg-3))",
-                "content-1": "0 1px 0px rgb(var(--content-1))",
-                "content-2": "0 1px 0px rgb(var(--content-2))",
-                "accent-1": "0 1px 0px rgb(var(--accent-1))",
+                "bg-1": "0 15px 15px rgb(var(--bg-1))",
+                "bg-2": "0 15px 15px rgb(var(--bg-2))",
+                "bg-3": "0 15px 15px rgb(var(--bg-3))",
+                "content-1": "0 15px 15px rgb(var(--content-1))",
+                "content-2": "0 15px 15px rgb(var(--content-2))",
+                "accent-1": "0 15px 15px rgb(var(--accent-1))",
+
+                "opp-bg-1": "0 15px 15px rgb(var(--opp-bg-1))",
+                "opp-bg-2": "0 15px 15px rgb(var(--opp-bg-2))",
+                "opp-bg-3": "0 15px 15px rgb(var(--opp-bg-3))",
+                "opp-content-1": "0 15px 15px rgb(var(--opp-content-1))",
+                "opp-content-2": "0 15px 15px rgb(var(--opp-content-2))",
+                "opp-accent-1": "0 15px 15px rgb(var(--opp-accent-1))",
             },
             keyframes: {
                 wiggle: {
@@ -53,7 +78,7 @@ const config: Config = {
                 },
             },
             animation: {
-                wiggle: "wiggle 2s ease-in-out infinite",
+                wiggle: "wiggle 6s ease-in-out infinite",
             },
             fontFamily: {
                 cursive: ["Dancing Script", "cursive"],

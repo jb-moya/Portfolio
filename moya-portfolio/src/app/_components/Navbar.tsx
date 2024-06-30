@@ -7,55 +7,80 @@ import Link from "next/link";
 import { RootState } from "@/lib/store";
 import classNames from "classnames";
 import { Button } from "./ui/moving-border";
-const Navbar = () => {
+import { m } from "framer-motion";
+
+import { FaUser, FaProjectDiagram, FaHome } from "react-icons/fa";
+import { IoSettings } from "react-icons/io5";
+import { RiContactsBook3Fill } from "react-icons/ri";
+
+const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
     const { menuStates } = useSelector((state: RootState) => state.navbar);
 
     const { theme, toggleTheme } = useTheme();
+
+    useEffect(() => {
+        console.log("eto", menuStates);
+    }, [menuStates]);
 
     const menus = {
         home: {
             name: "Home",
             href: "#home",
+            icon: <FaHome className="text-custom-content-2" />,
         },
         about: {
             name: "About",
             href: "#about",
+            icon: <FaUser className="text-custom-content-2" />,
         },
         skills: {
             name: "Skills",
             href: "#skills",
+            icon: <IoSettings className="text-custom-content-2" />,
         },
         projects: {
             name: "Projects",
             href: "#projects",
+            icon: <FaProjectDiagram className="text-custom-content-2" />,
         },
         contacts: {
             name: "Contacts",
             href: "#contacts",
+            icon: <RiContactsBook3Fill className="text-custom-content-2" />,
         },
     };
 
     return (
         <>
-            <nav className="max-w-7xl mx-auto py-3 text-custom-content-2 sticky top-0 h-fit">
-                <div className="flex space-x-6 justify-center">
+            <nav
+                className={classNames(
+                    "w-fit px-4 mx-auto text-custom-content-2 sticky top-10 h-fit z-50",
+                    { "bg-custom-static-1/5": theme !== "dark" }
+                )}
+            >
+                <div className="flex w-fit justify-center items-center">
                     {Object.entries(menus).map(([key, menu]) => (
-                        <Button
+                        <Link
                             key={key}
-                            borderClassName={classNames({
-                                hidden: !menuStates[menu.name],
-                            })}
-                            className={classNames({
-                                "border-[1px] border-custom-bg-3 border-opacity-30":
-                                    menuStates[menu.name],
-                            })}
+                            href={menu.href}
+                            className={classNames(
+                                "flex text-sm w-full h-full items-center justify-center px-4 box-border",
+                                {
+                                    // "border-[1px] text-sm border-custom-content-1 border-opacity-30":
+                                    "gradient-border drop-shadow-[0_1px_1px_rgba(0,0,0,1)] font-bold text-lg text-custom-static-6 transition-all duration-300 ease-in-out":
+                                        menuStates[menu.name],
+                                }
+                            )}
                         >
-                            <Link href={menu.href} className="w-full h-full">{menu.name}</Link>
-                        </Button>
+                            <span className="block sm:hidden aspect-square p-3">
+                                {menu.icon}
+                            </span>
+                            <span className="hidden sm:block">{menu.name}</span>
+                        </Link>
                     ))}
                     <button
                         onClick={toggleTheme}
-                        className="text-2xl text-custom-content-2"
+                        className="text-2xl text-custom-content-2 p-1 m-1"
                     >
                         {theme === "dark" ? (
                             <MdDarkMode />

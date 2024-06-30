@@ -32,7 +32,7 @@ export function Button({
     return (
         <Component
             className={cn(
-                "bg-transparent relative text-xl border-[1px] border-custom-content-2 border-opacity-0 hover:border-opacity-100 h-6 w-20 p-[1px] overflow-hidden transition-all duration-150 z-[10000]",
+                "relative text-xl border-[1px] border-custom-content-2 border-opacity-0 hover:border-opacity-100 p-[1px] overflow-hidden transition-all duration-150 z-[10000]",
                 containerClassName
             )}
             style={{
@@ -56,7 +56,7 @@ export function Button({
 
             <div
                 className={cn(
-                    "relative backdrop-blur-[164px] text-custom-content-2 flex items-center justify-center w-full h-full text-sm antialiased",
+                    "relative backdrop-blur-[164px] lg:text-base sm:text-sm flex items-center justify-center w-full h-full antialiased",
                     className
                 )}
                 style={{
@@ -71,7 +71,7 @@ export function Button({
 
 export const MovingBorder = ({
     children,
-    duration = 5000,
+    duration = 10000,
     rx,
     ry,
     ...otherProps
@@ -97,6 +97,7 @@ export const MovingBorder = ({
         progress,
         (val) => pathRef.current?.getPointAtLength(val).x
     );
+    
     const y = useTransform(
         progress,
         (val) => pathRef.current?.getPointAtLength(val).y
