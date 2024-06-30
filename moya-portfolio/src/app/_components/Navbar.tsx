@@ -54,8 +54,8 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
         <>
             <nav
                 className={classNames(
-                    "w-fit px-4 mx-auto text-custom-content-2 sticky top-10 h-fit z-50",
-                    { "bg-custom-static-1/5": theme !== "dark" }
+                    "w-fit px-4 mx-auto text-custom-content-2 sticky top-10 h-fit z-50"
+                    // { "bg-custom-static-1/5": theme !== "dark" }
                 )}
             >
                 <div className="flex w-fit justify-center items-center">
@@ -66,9 +66,18 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
                             className={classNames(
                                 "flex text-sm w-full h-full items-center justify-center px-4 box-border",
                                 {
-                                    // "border-[1px] text-sm border-custom-content-1 border-opacity-30":
-                                    "gradient-border drop-shadow-[0_1px_1px_rgba(0,0,0,1)] font-bold text-lg text-custom-static-6 transition-all duration-300 ease-in-out":
+                                    "gradient-bottom-border first-letter:font-bold text-lg transition-all duration-500 ease-in-out":
                                         menuStates[menu.name],
+                                },
+                                {
+                                    "[text-shadow:_1px_1px_1px_rgb(243_182_153_/_100%)]":
+                                        menuStates[menu.name] &&
+                                        theme !== "dark",
+                                },
+                                {
+                                    "text-custom-static-6":
+                                        menuStates[menu.name] &&
+                                        theme === "dark",
                                 }
                             )}
                         >

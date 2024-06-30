@@ -6,6 +6,8 @@ import {
     TypewriterEffectSmooth,
     TypewriterEffect,
 } from "./_components/ui/typewrite-effect";
+import Image from "next/image";
+import profile from "./assets/cherry.jpg";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
@@ -36,14 +38,11 @@ export default function Home() {
             text: "Moya",
             className: "text-4xl md:text-5xl lg:text-7xl drop-shadow-lg",
         },
-        // {
-        //     text: "",
-        //     className: "text-4xl md:text-5xl lg:text-7xl drop-shadow-lg",
-        // },
     ];
-    useEffect(() => {
-        console.log("pathname", pathname);
-    }, [pathname]);
+
+    // useEffect(() => {
+    //     console.log("pathname", pathname);
+    // }, [pathname]);
 
     return (
         <section
@@ -53,7 +52,57 @@ export default function Home() {
         >
             <div className="w-full my-auto flex flex-col space-x-4 space-y-4 justify-center">
                 <div className="text-center text-custom-content-2 flex flex-col">
-                    <div>
+                    <div className="pb-20 flex">
+                        <div className="w-7/12 pr-10 pt-2 text-left">
+                            <h1 className="font-bold text-2xl leading-10 gradient-text">
+                                Hi, I'm JB Moya
+                            </h1>
+                            <p>
+                                I am currently a final year undergraduate
+                                student
+                            </p>
+                            <p className="font-extrabold text-6xl pt-6 gradient-text">
+                                Full-Stack Developer
+                            </p>
+
+                            <div className="flex space-x-4 pt-10">
+                                <div className="gradient-border">
+                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center text-custom-static-6">
+                                        <FaGithub size={30} className="mr-2" />{" "}
+                                        GitHub
+                                    </a>
+                                </div>
+                                <div className="gradient-border">
+                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center text-custom-static-6">
+                                        <FaLinkedin
+                                            size={30}
+                                            className="mr-2"
+                                        />{" "}
+                                        LinkedIn
+                                    </a>
+                                </div>
+                                <div className="gradient-border">
+                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center text-custom-static-6">
+                                        <SiIndeed size={30} className="mr-2" />{" "}
+                                        Indeed
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="w-5/12 aspect-square box-border self-center p-4 gradient-border">
+                            <Image
+                                src={profile}
+                                className="w-full h-full object-cover"
+                                width={1000}
+                                height={1000}
+                                quality={100}
+                                alt="profile"
+                            />
+                        </div>
+                    </div>
+
+                    {/* <div>
                         <span className="text-lg md:text-2xl font-medium">
                             Hi, I&apos;m
                         </span>
@@ -76,34 +125,7 @@ export default function Home() {
                         )}
                     >
                         I am currently a final year undergraduate student
-                    </div>
-                    <div className="px-4">
-                        <Button
-                            containerClassName="h-12 m-1 w-32 shadow-lg"
-                            borderClassName="h-28 w-28"
-                        >
-                            <a className="flex w-full h-full items-center md:text-base text-sm justify-center text-custom-content-2">
-                                <FaGithub size={30} className="mr-2" /> GitHub
-                            </a>
-                        </Button>
-                        <Button
-                            containerClassName="h-12 m-1 w-32 shadow-lg"
-                            borderClassName="h-28 w-28"
-                        >
-                            <a className="flex w-full h-full items-center md:text-base text-sm justify-center text-custom-content-2">
-                                <FaLinkedin size={30} className="mr-2" />{" "}
-                                LinkedIn
-                            </a>
-                        </Button>
-                        <Button
-                            containerClassName="h-12 m-1 w-32 shadow-lg"
-                            borderClassName="h-28 w-28"
-                        >
-                            <a className="flex w-full h-full items-center md:text-base text-sm justify-center text-custom-content-2">
-                                <SiIndeed size={30} className="mr-2" /> Indeed
-                            </a>
-                        </Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

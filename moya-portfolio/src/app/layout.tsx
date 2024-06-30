@@ -59,7 +59,7 @@ export default function RootLayout({
 
                         <main
                             className={classNames(
-                                "min-w-6xl max-w-5xl mx-auto px-2 space-y-6 text-custom-content-2"
+                                "min-w-3xl max-w-3xl mx-auto px-2 space-y-6 text-custom-content-2"
                             )}
                         >
                             {children}
