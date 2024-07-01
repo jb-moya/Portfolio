@@ -3,13 +3,11 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { setTheme } from "../../lib/features/themeSlice";
-import { useTheme } from "./useTheme";
+
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { RootState } from "@/lib/store";
 import classNames from "classnames";
-import { Button } from "./ui/moving-border";
-import { m } from "framer-motion";
 
 import { FaUser, FaProjectDiagram, FaHome } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
@@ -24,7 +22,6 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
     const toggleTheme = () => {
         dispatch(setTheme(theme === "light" ? "dark" : "light"));
     };
-
 
     useEffect(() => {
         console.log("theme", theme);
@@ -62,34 +59,24 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
         <>
             <nav
                 className={classNames(
-                    "w-fit px-4 mx-auto text-custom-content-2 sticky top-10 h-fit z-50"
+                    "w-[30rem] mx-auto text-custom-content-2/65 sticky top-10 z-50"
                     // { "bg-custom-static-1/5": theme !== "dark" }
                 )}
             >
-                <div className="flex w-fit justify-center items-center">
+                <div className="flex space-x-4 items-center">
                     {Object.entries(menus).map(([key, menu]) => (
                         <Link
                             key={key}
                             href={menu.href}
                             className={classNames(
-                                "flex w-full h-full items-center justify-center px-4 box-border",
+                                "flex-1 w-full justify-center text-center hover:scale-105 hover:text-custom-content-1",
                                 {
-                                    "gradient-bottom-border first-letter:font-bold text-lg transition-all duration-500 ease-in-out":
+                                    "text-custom-content-1 border-b-custom-content-1 border-b transition-all duration-500 ease-in-out":
                                         menuStates[menu.name],
                                 },
-                                {
-                                    "[text-shadow:_1px_1px_1px_rgb(243_182_153_/_100%)]":
-                                        menuStates[menu.name] &&
-                                        theme !== "dark",
-                                },
-                                {
-                                    "text-custom-static-6":
-                                        menuStates[menu.name] &&
-                                        theme === "dark",
-                                }
                             )}
                         >
-                            <span className="block sm:hidden aspect-square p-3">
+                            <span className="sm:hidden aspect-square p-3">
                                 {menu.icon}
                             </span>
                             <span className="hidden sm:block">{menu.name}</span>
@@ -97,7 +84,7 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
                     ))}
                     <button
                         onClick={toggleTheme}
-                        className="text-2xl text-custom-content-2 p-1 m-1"
+                        className="text-2xl text-custom-content-1 p-1 m-1"
                     >
                         {theme === "dark" ? (
                             <MdDarkMode />

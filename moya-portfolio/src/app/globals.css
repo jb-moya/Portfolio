@@ -9,8 +9,12 @@ html {
     width: 100%;
     height: 100vh;
     filter: contrast(var(--bg-contrast)) brightness(var(--bg-brightness));
-    background: radial-gradient(farthest-side at 50% -10%, rgb(var(--bg-1)), transparent),
-        linear-gradient(360deg, rgba(7, 32, 48, 0.801), rgb(var(--bg-1))),
+    background: radial-gradient(
+            farthest-side at 50% -10%,
+            rgb(var(--bg-1)),
+            transparent
+        ),
+        linear-gradient(360deg, rgb(var(--bg-1)), rgb(var(--bg-1))),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 121 121' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='9.19' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 
     z-index: -1;
@@ -21,14 +25,10 @@ html {
 }
 
 .gradient-text {
-    background: -webkit-linear-gradient(
-        120deg,
-        hsl(19deg 31% 24%) 7%,
-        hsl(17deg 26% 30%) 29%,
-        hsl(15deg 20% 35%) 36%,
-        hsl(14deg 31% 46%) 44%,
-        hsl(17deg 55% 62%) 58%,
-        hsl(19deg 79% 78%) 100%
+    background: linear-gradient(
+        156deg,
+        rgb(var(--text-gradient-1)) 0%,
+        rgb(var(--text-gradient-2)) 100%
     );
 
     clip: text;
@@ -41,24 +41,18 @@ html {
     border-block-end: 1px solid;
     padding-block-end: 4px;
     border-image-source: linear-gradient(
-        315deg,
-        rgba(71, 54, 42, 1) 0%,
-        rgba(116, 88, 80, 1) 10%,
-        rgba(243, 182, 153, 1) 35%,
-        rgba(181, 122, 108, 1) 60%,
-        rgba(116, 88, 80, 1) 69%,
-        rgba(243, 182, 153, 1) 95%,
-        rgba(255, 255, 255, 1) 100%
+        156deg,
+        rgb(var(--text-gradient-1)) 0%,
+        rgb(var(--text-gradient-2)) 100%
     );
     border-image-slice: 1;
 }
 
 .gradient-border {
     border-image-source: linear-gradient(
-        315deg,
-        rgba(157, 122, 112, 1) 0%,
-        rgba(243, 182, 153, 1) 26%,
-        rgba(255, 213, 185, 1) 100%
+        90deg,
+        rgb(var(--text-gradient-1)) 25%,
+        rgb(var(--text-gradient-1)) 100%
     );
     border-image-slice: 1;
 }
@@ -67,9 +61,13 @@ html {
     background: rgb(243, 182, 153);
     background: linear-gradient(
         156deg,
-        rgba(243, 182, 153, 1) 0%,
-        rgba(116, 88, 80, 1) 100%
+        rgb(var(--text-gradient-1)) 25%,
+        rgb(var(--text-gradient-2)) 100%
     );
+}
+
+.text-stroke {
+    -webkit-text-stroke: .5px rgb(var(--content-1));
 }
 
 @layer base {
@@ -77,33 +75,39 @@ html {
         /* set here independent colors */
         --s-c-1: 17 24 34;
         --s-c-2: 51 55 64;
-        --s-c-3: 108 106 106;
+        --s-c-3: 138 136 136;
         --s-c-4: 79 54 42;
         --s-c-5: 116 88 80;
         --s-c-6: 243 182 153;
     }
 
     :root[data-theme="light"] {
-        --bg-contrast: 0%;
-        --bg-brightness: 200%;
+        --bg-contrast: 100%;
+        --bg-brightness: 100%;
+        /* --test: rgb(209, 180, 156); */
+        --test2: rgb(231, 201, 172);
+        /* --bg-1: 203 142 113; */
 
-        --bg-1: 255 255 255;
+
+        --bg-1: 243 182 153;
         --bg-2: 155 168 171;
         --bg-3: 74 92 106;
 
-        /* --content-2: 17 33 45; */
-        /* --content-2: 51 55 64; */
-        --content-1: 243 182 153;
-        --content-2: 116 88 80;
+        --content-1: 2 63 92;
+        --content-2: 96 68 60;
 
         --accent-1: 15 60 54;
 
         --opp-accent-1: 15 60 54;
+        --opp-content-1: 243 182 153;
         --opp-content-2: 155 168 171;
-        --opp-content-1: 204 208 207;
+
         --opp-bg-3: 37 55 69;
         --opp-bg-2: 17 33 45;
         --opp-bg-1: 6 20 27;
+
+        --text-gradient-1: 146 128 120;
+        --text-gradient-2: 243 182 153;
     }
 
     /* 
@@ -113,7 +117,7 @@ html {
     4F362A -> 79 54 42
     745850 -> 116 88 80
     F3B699 -> 243 182 153
-    */
+    */  
 
     :root[data-theme="dark"] {
         --bg-contrast: 100%;
@@ -130,10 +134,15 @@ html {
         /* --content-2: 155 168 171; */
         /* --content-2: 51 55 64; */
         /* --content-2: 116 88 80; */
-        --content-2: 108 106 106;
+
         --content-1: 243 182 153;
+        --content-2: 235 229 228;
+        
         --bg-3: 37 55 69;
         --bg-2: 17 33 45;
         --bg-1: 17 24 34; /* Eerie Black */
+
+        --text-gradient-1: 243 182 153;
+        --text-gradient-2: 116 88 80;
     }
 }

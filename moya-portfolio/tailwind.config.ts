@@ -25,6 +25,8 @@ const config: Config = {
                     "radial-gradient(rgb(var(--bg-2)) 40%,transparent 60%)",
                 "gradient-conic":
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+                "gradient-background":
+                    "linear-gradient(to bottom, #f3b699, #dfa790, #cb9986, #b78b7d, #a37e73)",
             },
             aspectRatio: {
                 "4/3-x": "4 / 3",
@@ -76,10 +78,26 @@ const config: Config = {
                     "0%, 100%": { transform: "rotate(-6deg)" },
                     "50%": { transform: "rotate(6deg)" },
                 },
+
+                customBounce: {
+                    "0%, 100%": {
+                        transform: "translateY(-75%)",
+                        "animation-timing-function":
+                            "cubic-bezier(0.8, 0, 1, 1)",
+                    },
+                    "50%": {
+                        transform: "translateY(0)",
+                        "animation-timing-function":
+                            "cubic-bezier(0, 0, 0.2, 1)",
+                    },
+                },
             },
+
             animation: {
                 wiggle: "wiggle 6s ease-in-out infinite",
+                customBounce: "customBounce 2s ease-in-out infinite",
             },
+
             fontFamily: {
                 cursive: ["Dancing Script", "cursive"],
             },
