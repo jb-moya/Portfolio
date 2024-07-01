@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { setTheme } from "../../lib/features/themeSlice";
 import { useTheme } from "./useTheme";
 import { useSelector } from "react-redux";
 import Link from "next/link";
@@ -15,12 +17,18 @@ import { RiContactsBook3Fill } from "react-icons/ri";
 
 const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
     const { menuStates } = useSelector((state: RootState) => state.navbar);
+    const { theme } = useSelector((state: RootState) => state.theme);
 
-    const { theme, toggleTheme } = useTheme();
+    const dispatch = useDispatch();
+
+    const toggleTheme = () => {
+        dispatch(setTheme(theme === "light" ? "dark" : "light"));
+    };
+
 
     useEffect(() => {
-        console.log("eto", menuStates);
-    }, [menuStates]);
+        console.log("theme", theme);
+    }, [theme]);
 
     const menus = {
         home: {
@@ -64,7 +72,7 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
                             key={key}
                             href={menu.href}
                             className={classNames(
-                                "flex text-sm w-full h-full items-center justify-center px-4 box-border",
+                                "flex w-full h-full items-center justify-center px-4 box-border",
                                 {
                                     "gradient-bottom-border first-letter:font-bold text-lg transition-all duration-500 ease-in-out":
                                         menuStates[menu.name],

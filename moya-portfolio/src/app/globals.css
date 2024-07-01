@@ -9,12 +9,8 @@ html {
     width: 100%;
     height: 100vh;
     filter: contrast(var(--bg-contrast)) brightness(var(--bg-brightness));
-    background: radial-gradient(
-            circle at 0% -150%,
-            rgba(224, 230, 245, 0.411),
-            rgb(var(--bg-1))
-        ),
-        linear-gradient(360deg, rgba(17, 24, 34, 1), rgba(255, 255, 0, 0)),
+    background: radial-gradient(farthest-side at 50% -10%, rgb(var(--bg-1)), transparent),
+        linear-gradient(360deg, rgba(7, 32, 48, 0.801), rgb(var(--bg-1))),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 121 121' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='9.19' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 
     z-index: -1;
@@ -23,8 +19,6 @@ html {
     background-size: cover, cover, cover, cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
-
-/* todo: use variables into the grainy gradient above */
 
 .gradient-text {
     background: -webkit-linear-gradient(
@@ -43,35 +37,39 @@ html {
     -webkit-text-fill-color: transparent;
 }
 
-/* background: linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 2px) calc(100% - 2px) no-repeat,
-            radial-gradient(at 0% 0%, #fff9ee 0%, transparent 11%),
-            radial-gradient(at 100% 100%, #f3b699 0%, transparent 70%),
-            radial-gradient(at 100% 0%, #4f362a 0%, transparent 70%),
-            radial-gradient(at 0% 0%, #f3b699 0%, transparent 95%),
-            #745850;
-border-radius: 0px;
-padding: 10px;
-box-sizing: border-box; */
-
 .gradient-bottom-border {
     border-block-end: 1px solid;
     padding-block-end: 4px;
     border-image-source: linear-gradient(
-        15deg,
-        rgb(var(--s-c-6)),
-        rgb(var(--s-c-5))
+        315deg,
+        rgba(71, 54, 42, 1) 0%,
+        rgba(116, 88, 80, 1) 10%,
+        rgba(243, 182, 153, 1) 35%,
+        rgba(181, 122, 108, 1) 60%,
+        rgba(116, 88, 80, 1) 69%,
+        rgba(243, 182, 153, 1) 95%,
+        rgba(255, 255, 255, 1) 100%
     );
     border-image-slice: 1;
 }
 
 .gradient-border {
-    border: 1px solid;
     border-image-source: linear-gradient(
-        15deg,
-        rgb(var(--s-c-6)),
-        rgb(var(--s-c-5))
+        315deg,
+        rgba(157, 122, 112, 1) 0%,
+        rgba(243, 182, 153, 1) 26%,
+        rgba(255, 213, 185, 1) 100%
     );
     border-image-slice: 1;
+}
+
+.gradient-background {
+    background: rgb(243, 182, 153);
+    background: linear-gradient(
+        156deg,
+        rgba(243, 182, 153, 1) 0%,
+        rgba(116, 88, 80, 1) 100%
+    );
 }
 
 @layer base {
@@ -86,8 +84,8 @@ box-sizing: border-box; */
     }
 
     :root[data-theme="light"] {
-        --bg-contrast: 50%;
-        --bg-brightness: 110%;
+        --bg-contrast: 0%;
+        --bg-brightness: 200%;
 
         --bg-1: 255 255 255;
         --bg-2: 155 168 171;
@@ -119,7 +117,7 @@ box-sizing: border-box; */
 
     :root[data-theme="dark"] {
         --bg-contrast: 100%;
-        --bg-brightness: 30%;
+        --bg-brightness: 100%;
 
         --opp-bg-1: 204 208 207;
         --opp-bg-2: 155 168 171;

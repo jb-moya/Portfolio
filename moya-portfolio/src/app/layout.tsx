@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
-import Footer from "./_components/Footer";
 import { ReactNode } from "react";
 import { inter } from "./fonts";
 import classNames from "classnames";
 import StoreProvider from "./StoreProvider";
-import Image from "next/image";
-
-import undulate1 from "./assets/undulate1.svg";
-import undulate2 from "./assets/undulate2.svg";
-import undulate3 from "./assets/undulate3.svg";
-import blob1 from "./assets/blob.svg";
-import gradientBG from "./assets/gradientBG.png";
 
 export const metadata: Metadata = {
     title: "Moya Portfolio",
@@ -53,10 +45,6 @@ export default function RootLayout({
                 <div className="w-full">
                     <StoreProvider>
                         <Navbar />
-                        {/* <div className="hehe"></div> */}
-
-                        {/* <Image className="fixed -z-10" src={gradientBG} alt="" quality={100}/> */}
-
                         <main
                             className={classNames(
                                 "min-w-3xl max-w-3xl mx-auto px-2 space-y-6 text-custom-content-2"

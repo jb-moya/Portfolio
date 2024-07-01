@@ -1,29 +1,30 @@
 "use client";
 
-import { dancingScript, firaCode, inter } from "./fonts";
 import classNames from "classnames";
-import {
-    TypewriterEffectSmooth,
-    TypewriterEffect,
-} from "./_components/ui/typewrite-effect";
 import Image from "next/image";
 import profile from "./assets/cherry.jpg";
+
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { useSectionObserver } from "./_components/navbarSectionObserver";
-import { Button } from "./_components/ui/moving-border";
 import { FaLinkedin } from "react-icons/fa";
 import { SiIndeed } from "react-icons/si";
-
-import Link from "next/link";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
 
 export default function Home() {
     const sectionRef = useSectionObserver({
         sectionName: "Home",
     });
 
-    const pathname = usePathname();
+    const { theme } = useSelector((state: RootState) => state.theme);
+
+    
+
+    useEffect(() => {
+        console.log("ANOOOOOOOOO theme", theme);
+    }, [theme]);
 
     const words = [
         {
@@ -39,10 +40,6 @@ export default function Home() {
             className: "text-4xl md:text-5xl lg:text-7xl drop-shadow-lg",
         },
     ];
-
-    // useEffect(() => {
-    //     console.log("pathname", pathname);
-    // }, [pathname]);
 
     return (
         <section
@@ -66,14 +63,24 @@ export default function Home() {
                             </p>
 
                             <div className="flex space-x-4 pt-10">
-                                <div className="gradient-border">
-                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center text-custom-static-6">
+                                <div
+                                    className={classNames("gradient-border border", {
+                                        "text-custom-static-6": theme === "dark",
+                                        "text-custom-static-4 shadow-md": theme !== "dark",
+                                    })}
+                                >
+                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center">
                                         <FaGithub size={30} className="mr-2" />{" "}
                                         GitHub
                                     </a>
                                 </div>
-                                <div className="gradient-border">
-                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center text-custom-static-6">
+                                <div
+                                    className={classNames("gradient-border border", {
+                                        "text-custom-static-6": theme === "dark",
+                                        "text-custom-static-4 shadow-md": theme !== "dark",
+                                    })}
+                                >
+                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center">
                                         <FaLinkedin
                                             size={30}
                                             className="mr-2"
@@ -81,8 +88,13 @@ export default function Home() {
                                         LinkedIn
                                     </a>
                                 </div>
-                                <div className="gradient-border">
-                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center text-custom-static-6">
+                                <div
+                                    className={classNames("gradient-border border", {
+                                        "text-custom-static-6": theme === "dark",
+                                        "text-custom-static-4 shadow-md": theme !== "dark",
+                                    })}
+                                >
+                                    <a className="px-3 py-2 cursor-pointer flex w-full h-full items-center md:text-base text-sm justify-center">
                                         <SiIndeed size={30} className="mr-2" />{" "}
                                         Indeed
                                     </a>
@@ -90,7 +102,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="w-5/12 aspect-square box-border self-center p-4 gradient-border">
+                        <div className="w-5/12 aspect-square box-border self-center p-4 gradient-border border shadow-md">
                             <Image
                                 src={profile}
                                 className="w-full h-full object-cover"
@@ -101,31 +113,6 @@ export default function Home() {
                             />
                         </div>
                     </div>
-
-                    {/* <div>
-                        <span className="text-lg md:text-2xl font-medium">
-                            Hi, I&apos;m
-                        </span>
-                        <span
-                            className={classNames(
-                                "text-custom-accent-1 mt-10 -z-50",
-                                inter.className
-                            )}
-                        >
-                            <TypewriterEffect
-                                words={words}
-                                className="justify-center lg:my-6 md:my-4 my-4 font-extrabold"
-                            />
-                        </span>
-                    </div>
-                    <div
-                        className={classNames(
-                            "text-lg md:text-2xl mb-5 font-medium w-fit flex self-center px-10",
-                            inter.className
-                        )}
-                    >
-                        I am currently a final year undergraduate student
-                    </div> */}
                 </div>
             </div>
         </section>
