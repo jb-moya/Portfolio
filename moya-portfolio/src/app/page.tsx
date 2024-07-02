@@ -74,7 +74,7 @@ export default function Home() {
             url: "https://github.com/jbvhert",
             classNames:
                 "px-7 font-bold shadow-md gradient-background text-custom-opp-content-2",
-                iconClassNames: "mr-1",
+            iconClassNames: "mr-1",
             openPageIcon: false,
         },
         {
@@ -104,15 +104,12 @@ export default function Home() {
         "";
 
     return (
-        <section
-            id="home"
-            className="flex h-[720px] text-custom-content-1 flex-col items-center justify-between mx-auto"
-            ref={sectionRef}
-        >
-            <div className="w-full my-auto flex flex-col space-x-4 space-y-4 justify-center">
-                <div className="text-center flex flex-col">
-                    <div className="flex">
-                        <div className="w-7/12 pr-10 text-left">
+        <section className="flex h-[720px] text-custom-content-1 flex-col sm:flex-row items-center justify-between mx-auto">
+            <div id="home" ref={sectionRef}></div>
+            <div className="w-full my-auto flex space-x-4 space-y-4 justify-center">
+                <div className="text-center flex">
+                    <div className="flex sm:flex-row flex-col">
+                        <div className="sm:w-7/12 px-5 pt-5 text-center w-12/12 sm:pr-10 sm:text-left sm:order-1 order-2">
                             <h1
                                 // className={`font-bold text-2xl text-stroke`}
                                 className={`font-bold text-2xl text-custom-content-2 ${shadowedWord}`}
@@ -130,18 +127,20 @@ export default function Home() {
                                 Full-Stack Developer
                             </p>
 
-                            <div className="w-full flex flex-wrap mt-6">
+                            <div className="w-full flex flex-wrap mt-6 justify-center sm:justify-normal">
                                 {linkButtons.map((item, index) => (
                                     <a
                                         key={index}
                                         className={classNames(
-                                            "text-custom-content-2 flex-wrap mx-1 py-2 cursor-pointer flex items-center md:text-base text-sm justify-center",
+                                            "text-custom-content-2 mt-2 flex-wrap mx-1 py-2 cursor-pointer flex items-center md:text-base text-sm justify-center",
                                             "duration-500 ease-in-out transition-all hover:scale-105",
                                             item.classNames
                                         )}
                                         href={item.url}
                                     >
-                                        <span className={item.iconClassNames}>{item.icon}</span>
+                                        <span className={item.iconClassNames}>
+                                            {item.icon}
+                                        </span>
                                         <span>{item.text}</span>
                                         {item.openPageIcon && (
                                             <span className="">
@@ -153,7 +152,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="w-5/12 aspect-square box-border self-center p-4 gradient-border border shadow-md">
+                        <div className="sm:w-5/12 mr-0 sm:mr-5 sm:mt-0 mt-10 w-8/12 sm:order-1 aspect-square box-border self-center p-4 gradient-border border shadow-md">
                             <Image
                                 src={profile}
                                 className="w-full h-full object-cover"
@@ -169,7 +168,7 @@ export default function Home() {
 
             <span
                 ref={scrollDownIndicator}
-                className="animate-customBounce text-custom-content-2 transition-opacity duration-500 ease-in-out"
+                className="animate-customBounce fixed bottom-5 left-1/2 -translate-x-1/2 text-custom-content-2 transition-opacity duration-500 ease-in-out"
             >
                 <RiArrowDownWideFill size={20} />
             </span>

@@ -10,10 +10,12 @@ export default function AboutPage() {
     });
 
     return (
-        <section id="about" ref={sectionRef}>
+        <section>
             <div className="flex">
                 <div className="text-lg w-8/12 px-4 content-center">
-                    <h1 className="text-3xl py-4">About Me</h1>
+                    <h1 id="about" ref={sectionRef} className="text-3xl py-4">
+                        About Me
+                    </h1>
                     <p className="mr-32">
                         Hi, I'm JB Vhert Moya, a passionate and driven junior
                         web developer with a love for creating dynamic and
@@ -24,9 +26,9 @@ export default function AboutPage() {
                         continuously learning and eager to take on new
                         challenges, whether it's building responsive layouts,
                         optimizing web performance, or exploring new front-end
-                        technologies. I'm excited to collaborate
-                        and grow in the tech community, bringing my unique
-                        perspective and enthusiasm to every project I work on.
+                        technologies. I'm excited to collaborate and grow in the
+                        tech community, bringing my unique perspective and
+                        enthusiasm to every project I work on.
                     </p>
                 </div>
                 <div className="bg-custom-bg-2 w-4/12 aspect-square box-border self-center rounded-full shadow-md">

@@ -36,8 +36,8 @@ const Card = ({
                     <TechBadge name="Javascript" />
                     <TechBadge name="Css" />
                     <TechBadge name="NextJs" />
-                    <TechBadge name="HTML" />
-                    <TechBadge name="Tailwind" />
+                    {/* <TechBadge name="HTML" /> */}
+                    {/* <TechBadge name="Tailwind" /> */}
                 </div>
             </article>
         </>

@@ -8,14 +8,23 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { RootState } from "@/lib/store";
 import classNames from "classnames";
-
-import { FaUser, FaProjectDiagram, FaHome } from "react-icons/fa";
-import { IoSettings } from "react-icons/io5";
-import { RiContactsBook3Fill } from "react-icons/ri";
+import { RiArrowDropDownFill } from "react-icons/ri";
+import { BiCaretDown, BiCaretUp } from "react-icons/bi";
 
 const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
     const { menuStates } = useSelector((state: RootState) => state.navbar);
     const { theme } = useSelector((state: RootState) => state.theme);
+    const [dropDownShown, setDropDownShown] = useState(false);
+
+    const getSelectedMenu = () => {
+        return Object.entries(menuStates)
+            .filter(([key, value]) => value)
+            .map(([key, value]) => key);
+    };
+
+    useEffect(() => {
+        console.log("wew", getSelectedMenu());
+    }, [menuStates]);
 
     const dispatch = useDispatch();
 
@@ -31,36 +40,62 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
         home: {
             name: "Home",
             href: "#home",
-            icon: <FaHome className="text-custom-content-2" />,
         },
         about: {
             name: "About",
             href: "#about",
-            icon: <FaUser className="text-custom-content-2" />,
         },
         skills: {
             name: "Skills",
             href: "#skills",
-            icon: <IoSettings className="text-custom-content-2" />,
         },
         projects: {
             name: "Projects",
             href: "#projects",
-            icon: <FaProjectDiagram className="text-custom-content-2" />,
         },
         contacts: {
             name: "Contacts",
             href: "#contacts",
-            icon: <RiContactsBook3Fill className="text-custom-content-2" />,
         },
     };
 
     return (
         <>
+            <div className="block sm:hidden w-32 text-center top-5 z-50 mx-auto sticky text-custom-content-2/85 shadow-md">
+                <button
+                    className="w-full flex items-center justify-between py-2 px-2 bg-custom-bg-1/55 backdrop-blur-md"
+                    onClick={() => setDropDownShown(!dropDownShown)}
+                >
+                    {getSelectedMenu()}
+
+                    <span className="">
+                        {dropDownShown ? <BiCaretDown /> : <BiCaretUp />}
+                    </span>
+                </button>
+
+                {/* make a dropdown */}
+                <div
+                    className={classNames(
+                        "absolute w-full text-custom-content-2/85 flex flex-col",
+                        { hidden: !dropDownShown }
+                    )}
+                >
+                    {Object.entries(menus)
+                        .map(([key, menu]) => (
+                            <Link
+                                key={key}
+                                className="py-2 px-2 bg-custom-bg-1/55 hover:bg-custom-bg-3 backdrop-blur-md"
+                                href={menu.href}
+                                onClick={() => setDropDownShown(false)}
+                            >
+                                {menu.name}
+                            </Link>
+                        ))}
+                </div>
+            </div>
             <nav
                 className={classNames(
-                    "w-[30rem] mx-auto text-custom-content-2/85 sticky top-5 z-50 px-2 bg-custom-bg-1/55 backdrop-blur-md shadow-md"
-                    // { "bg-custom-static-1/5": theme !== "dark" }
+                    "sm:block hidden w-[30rem] mx-auto text-custom-content-2/85 sticky top-5 z-50 px-2 bg-custom-bg-1/55 backdrop-blur-md shadow-md"
                 )}
             >
                 <div className="flex space-x-4 items-center">
@@ -76,10 +111,7 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
                                 }
                             )}
                         >
-                            <span className="sm:hidden aspect-square p-3">
-                                {menu.icon}
-                            </span>
-                            <span className="hidden sm:block">{menu.name}</span>
+                            <span>{menu.name}</span>
                         </Link>
                     ))}
                     <button

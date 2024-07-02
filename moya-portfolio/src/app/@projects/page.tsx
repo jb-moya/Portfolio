@@ -11,14 +11,20 @@ export default function ProjectPage() {
     });
 
     return (
-        <section className="" id="projects" ref={sectionRef}>
-            <h1 className="text-3xl text-center py-4">Projects</h1>
+        <section className="">
+            <h1
+                id="projects"
+                ref={sectionRef}
+                className="text-3xl text-center py-4"
+            >
+                Projects
+            </h1>
 
             <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4 px-10">
-                <Card title="Ecommerce"/>
-                <Card title="Example Landing Page"/>
-                <Card title="Web Scraping"/>
-                <Card title="A Game"/>
+                <Card title="Ecommerce" />
+                <Card title="Example Landing Page" />
+                <Card title="Web Scraping" />
+                <Card title="A Game" />
             </div>
         </section>
     );

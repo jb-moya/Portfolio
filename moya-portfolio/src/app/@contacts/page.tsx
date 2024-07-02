@@ -8,8 +8,14 @@ export default function ContactsPage() {
     });
 
     return (
-        <section id="contacts" ref={sectionRef}>
-            <h1 className="text-3xl text-center py-4">Contacts</h1>
+        <section>
+            <h1
+                id="contacts"
+                ref={sectionRef}
+                className="text-3xl text-center py-4"
+            >
+                Contacts
+            </h1>
             <div>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
                 eligendi magni obcaecati earum deleniti, iure, ipsum aliquam qui

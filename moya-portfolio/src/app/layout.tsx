@@ -37,7 +37,7 @@ export default function RootLayout({
             className={classNames(`duration-700`, inter.className)}
             data-theme="dark"
         >
-            <body className="box-border">
+            <body className="">
                 {/* <rect width="100%" height="100%" filter="url(#noiseFilter)" /> */}
                 {/* viewBox="0 0 300 300"  */}
                 <div className="hehe">
@@ -58,7 +58,7 @@ export default function RootLayout({
                         <Navbar />
                         <main
                             className={classNames(
-                                "min-w-3xl max-w-3xl mx-auto px-2 space-y-6 text-custom-content-2"
+                                "sm:max-w-3xl max-w-xl  mx-auto px-2 text-custom-content-2"
                             )}
                         >
                             {children}

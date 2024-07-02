@@ -40,12 +40,15 @@ export default function SkillsPage() {
     });
 
     return (
-        <section
-            id="skills"
-            className="transition-colors h-96"
-            ref={sectionRef}
-        >
-            <h1 className="text-3xl text-center py-4">Skills</h1>
+        <section className="transition-colors h-96">
+            <div></div>
+            <h1
+                id="skills"
+                ref={sectionRef}
+                className="text-3xl text-center py-4"
+            >
+                Skills
+            </h1>
             <div className="w-full p-2 flex text-center justify-center text-custom-content-2 space-x-4 flex-wrap">
                 {skills.map((item, index) => (
                     <SkillIcon key={index} Icon={item.icon} name={item.name} />
