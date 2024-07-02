@@ -34,14 +34,25 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className={classNames(
-                `transition-colors duration-700`,
-                inter.className
-            )}
+            className={classNames(`duration-700`, inter.className)}
             data-theme="dark"
         >
-            <body className="relative box-border">
-                <div className="hehe"></div>
+            <body className="box-border">
+                {/* <rect width="100%" height="100%" filter="url(#noiseFilter)" /> */}
+                {/* viewBox="0 0 300 300"  */}
+                <div className="hehe">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <filter id="noiseFilter">
+                            <feTurbulence
+                                type="fractalNoise"
+                                baseFrequency="2.45"
+                                numOctaves="1"
+                                stitchTiles={"stitch"}
+                            />
+                        </filter>
+                    </svg>
+                </div>
+
                 <div className="w-full">
                     <StoreProvider>
                         <Navbar />

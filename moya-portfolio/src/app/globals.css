@@ -6,30 +6,65 @@ html {
 }
 
 .hehe {
-    width: 100%;
-    height: 100vh;
-    filter: contrast(var(--bg-contrast)) brightness(var(--bg-brightness));
-    background: radial-gradient(
-            farthest-side at 50% -10%,
-            rgb(var(--bg-1)),
-            transparent
-        ),
-        linear-gradient(360deg, rgb(var(--bg-1)), rgb(var(--bg-1))),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 121 121' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='9.19' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-
-    z-index: -1;
     position: fixed;
+    z-index: -1;
+}
+
+.hehe::before,
+.hehe::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    mix-blend-mode: var(--mix-blend-mode);
+
     background-attachment: fixed, fixed, fixed, fixed, fixed;
     background-size: cover, cover, cover, cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
 
+.hehe::before {
+    filter: url(#noiseFilter);
+}
+
+.hehe::after {
+    filter: contrast(var(--bg-contrast)) brightness(var(--bg-brightness));
+    background: var(--bg-color);
+    background-image: var(--bg-image);
+}
+
+/* body {
+    background-color: var(--bg-color);
+    background-image: var(--bg-image),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 301 301' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5.03' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+    background-attachment: fixed, fixed, fixed, fixed, fixed;
+    background-size: cover, cover, cover, cover, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+} */
+
+/* 
+background-color:hsla(24,27%,9%,1);
+background-image:
+radial-gradient(at 1% 69%, hsla(19,53%,25%,0.07) 0px, transparent 50%),
+radial-gradient(at 11% 4%, hsla(19,53%,25%,0.13) 0px, transparent 50%),
+radial-gradient(at 55% 100%, hsla(23,56%,50%,0.07) 0px, transparent 50%),
+radial-gradient(at 94% 79%, hsla(19,53%,25%,0.47) 0px, transparent 50%),
+radial-gradient(at 43% 1%, hsla(38,45%,82%,0.19) 0px, transparent 50%); */
+
+/* background-color:hsla(39,45%,82%,1);
+background-image:
+radial-gradient(at 1% 69%, hsla(19,53%,25%,0.07) 0px, transparent 50%),
+radial-gradient(at 11% 4%, hsla(19,53%,25%,0.13) 0px, transparent 50%),
+radial-gradient(at 26% 100%, hsla(23,56%,50%,0.49) 0px, transparent 50%),
+radial-gradient(at 97% 93%, hsla(19,53%,25%,0.32) 0px, transparent 50%),
+radial-gradient(at 43% 1%, hsla(38,45%,82%,0.19) 0px, transparent 50%); */
+
 .gradient-text {
-    background: linear-gradient(
-        156deg,
-        rgb(var(--text-gradient-1)) 0%,
-        rgb(var(--text-gradient-2)) 100%
-    );
+    background: var(--text-gradient);
 
     clip: text;
     background-clip: text;
@@ -49,25 +84,17 @@ html {
 }
 
 .gradient-border {
-    border-image-source: linear-gradient(
-        90deg,
-        rgb(var(--text-gradient-1)) 25%,
-        rgb(var(--text-gradient-1)) 100%
-    );
+    border-image-source: var(--text-gradient);
     border-image-slice: 1;
 }
 
 .gradient-background {
     background: rgb(243, 182, 153);
-    background: linear-gradient(
-        156deg,
-        rgb(var(--text-gradient-1)) 25%,
-        rgb(var(--text-gradient-2)) 100%
-    );
+    background: var(--text-gradient);
 }
 
 .text-stroke {
-    -webkit-text-stroke: .5px rgb(var(--content-1));
+    -webkit-text-stroke: 0.5px rgb(var(--content-1));
 }
 
 @layer base {
@@ -82,25 +109,69 @@ html {
     }
 
     :root[data-theme="light"] {
+        --text-gradient: linear-gradient(
+            to right bottom,
+            #c97338,
+            #c26c35,
+            #bc6431,
+            #b55d2e,
+            #ae562b,
+            #a55129,
+            #9d4d27,
+            #944825,
+            #884423,
+            #7c4022,
+            #703b20,
+            #65371f
+        );
+
+        --mix-blend-mode: multiply;
+        --bg-contrast: 110%;
+        --bg-brightness: 110%;
+
+        /* --mix-blend-mode: normal;
         --bg-contrast: 100%;
-        --bg-brightness: 100%;
+        --bg-brightness: 100%; */
+
+        --bg-color: hsla(39, 45%, 82%, 1);
+        --bg-image: radial-gradient(
+                at 1% 69%,
+                hsla(19, 53%, 25%, 0.07) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 11% 4%,
+                hsla(19, 53%, 25%, 0.13) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 16% 120%,
+                hsla(23, 56%, 50%, 0.49) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 107% 63%,
+                hsla(19, 53%, 25%, 0.32) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 43% 1%,
+                hsla(38, 45%, 82%, 0.19) 0px,
+                transparent 50%
+            );
+
         /* --test: rgb(209, 180, 156); */
         --test2: rgb(231, 201, 172);
         /* --bg-1: 203 142 113; */
 
+        --bg-1: 230 216 189;
+        --bg-2: 201 115 56;
+        --bg-3: 165 77 39;
 
-        --bg-1: 243 182 153;
-        --bg-2: 155 168 171;
-        --bg-3: 74 92 106;
-
-        --content-1: 2 63 92;
-        --content-2: 96 68 60;
-
-        --accent-1: 15 60 54;
-
-        --opp-accent-1: 15 60 54;
-        --opp-content-1: 243 182 153;
-        --opp-content-2: 155 168 171;
+        --content-1: 201 115 56;
+        --content-2: 101 55 31;
+        --opp-content-1: 201 115 56;
+        --opp-content-2: 230 216 189;
 
         --opp-bg-3: 37 55 69;
         --opp-bg-2: 17 33 45;
@@ -110,24 +181,72 @@ html {
         --text-gradient-2: 243 182 153;
     }
 
+    /* 230 216 189 */
+    /* 201 115 56 */
+    /* 165 77 39 */
+    /* 101 55 31 */
+    /* 40 33 25 */
+
     /* 
-    111822 -> 17 24 34
-    333740 -> 51 55 64
-    6C6A6A -> 108 106 106
-    4F362A -> 79 54 42
-    745850 -> 116 88 80
-    F3B699 -> 243 182 153
-    */  
+    #e6d8bd
+    #c97338
+    #a54d27
+    #65371f
+    #282119
+    */
 
     :root[data-theme="dark"] {
-        --bg-contrast: 100%;
-        --bg-brightness: 100%;
+        --text-gradient: linear-gradient(
+            to right bottom,
+            #e6d8bd,
+            #dfc6a0,
+            #d9b485,
+            #d4a16c,
+            #cf8e54,
+            #ca8249,
+            #c5763e,
+            #c06934,
+            #b96231,
+            #b35b2d,
+            #ac542a,
+            #a54d27
+        );
+
+        --content-1: 201 115 56;
+        --content-2: 230 216 189;
+        --opp-content-1: 201 115 56;
+        --opp-content-2: 101 55 31;
+
+        --mix-blend-mode: multiply;
+        --bg-color: hsla(32, 23%, 12%, 1);
+        --bg-image: radial-gradient(
+                at 0% 29%,
+                hsla(23, 56%, 50%, 0.13) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 90% 42%,
+                hsla(17, 61%, 40%, 0.16) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 53% 95%,
+                hsla(19, 53%, 25%, 0.36) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 39% 0%,
+                hsla(17, 61%, 40%, 0.14) 0px,
+                transparent 50%
+            );
+
+        --bg-contrast: 90%;
+        --bg-brightness: 110%;
 
         --opp-bg-1: 204 208 207;
         --opp-bg-2: 155 168 171;
         --opp-bg-3: 74 92 106;
-        --opp-content-1: 6 20 27;
-        --opp-content-2: 17 33 45;
+
         --opp-accent-1: 15 60 54;
 
         --accent-1: 15 60 54;
@@ -135,12 +254,9 @@ html {
         /* --content-2: 51 55 64; */
         /* --content-2: 116 88 80; */
 
-        --content-1: 243 182 153;
-        --content-2: 235 229 228;
-        
-        --bg-3: 37 55 69;
-        --bg-2: 17 33 45;
-        --bg-1: 17 24 34; /* Eerie Black */
+        --bg-3: 165 77 39;
+        --bg-2: 101 55 31;
+        --bg-1: 40 33 25; /* Eerie Black */
 
         --text-gradient-1: 243 182 153;
         --text-gradient-2: 116 88 80;

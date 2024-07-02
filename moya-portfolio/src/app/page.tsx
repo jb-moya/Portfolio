@@ -73,23 +73,28 @@ export default function Home() {
             icon: <FaGithub />,
             url: "https://github.com/jbvhert",
             classNames:
-                "px-3 shadow-md bg-custom-content-1 text-custom-opp-content-1",
+                "px-7 font-bold shadow-md gradient-background text-custom-opp-content-2",
+                iconClassNames: "mr-1",
             openPageIcon: false,
         },
         {
+            text: "linkedIn",
             icon: <FaLinkedin size={20} />,
             url: "https://www.linkedin.com/in/jbvhert/",
-            classNames: "border gradient-border",
+            classNames: "px-2 border gradient-border",
+            iconClassNames: "mr-1",
         },
         {
+            text: "indeed",
             icon: <SiIndeed size={20} />,
             url: "https://www.indeed.com/career-advice/career-development/how-to-become-a-full-stack-developer",
-            classNames: "border gradient-border",
+            classNames: "px-2 border gradient-border",
+            iconClassNames: "mr-1",
         },
         {
             text: "get my resume",
             url: "https://www.indeed.com/career-advice/career-development/how-to-become-a-full-stack-developer",
-            classNames: "",
+            classNames: "p-0 m-0",
             openPageIcon: true,
         },
     ];
@@ -101,7 +106,7 @@ export default function Home() {
     return (
         <section
             id="home"
-            className="flex h-[920px] text-custom-content-1 flex-col items-center justify-between mx-auto"
+            className="flex h-[720px] text-custom-content-1 flex-col items-center justify-between mx-auto"
             ref={sectionRef}
         >
             <div className="w-full my-auto flex flex-col space-x-4 space-y-4 justify-center">
@@ -120,7 +125,7 @@ export default function Home() {
                             </p>
                             <p
                                 // className={`font-extrabold text-6xl pt-2 text-stroke `}
-                                className={`font-extrabold text-6xl pt-2 ${shadowedWord}`}
+                                className={`font-extrabold text-6xl pt-2 ${shadowedWord} gradient-text`}
                             >
                                 Full-Stack Developer
                             </p>
@@ -130,13 +135,13 @@ export default function Home() {
                                     <a
                                         key={index}
                                         className={classNames(
-                                            "mr-2 mt-3 text-custom-content-1 flex-wrap px-1 py-2 cursor-pointer flex items-center md:text-base text-sm justify-center",
+                                            "text-custom-content-2 flex-wrap mx-1 py-2 cursor-pointer flex items-center md:text-base text-sm justify-center",
                                             "duration-500 ease-in-out transition-all hover:scale-105",
                                             item.classNames
                                         )}
                                         href={item.url}
                                     >
-                                        <span>{item.icon}</span>
+                                        <span className={item.iconClassNames}>{item.icon}</span>
                                         <span>{item.text}</span>
                                         {item.openPageIcon && (
                                             <span className="">
@@ -164,7 +169,7 @@ export default function Home() {
 
             <span
                 ref={scrollDownIndicator}
-                className="animate-customBounce text-custom-static-6 transition-opacity duration-500 ease-in-out"
+                className="animate-customBounce text-custom-content-2 transition-opacity duration-500 ease-in-out"
             >
                 <RiArrowDownWideFill size={20} />
             </span>

@@ -59,7 +59,7 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
         <>
             <nav
                 className={classNames(
-                    "w-[30rem] mx-auto text-custom-content-2/65 sticky top-10 z-50"
+                    "w-[30rem] mx-auto text-custom-content-2/85 sticky top-5 z-50 px-2 bg-custom-bg-1/55 backdrop-blur-md shadow-md"
                     // { "bg-custom-static-1/5": theme !== "dark" }
                 )}
             >
@@ -73,7 +73,7 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
                                 {
                                     "text-custom-content-1 border-b-custom-content-1 border-b transition-all duration-500 ease-in-out":
                                         menuStates[menu.name],
-                                },
+                                }
                             )}
                         >
                             <span className="sm:hidden aspect-square p-3">
@@ -84,7 +84,7 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
                     ))}
                     <button
                         onClick={toggleTheme}
-                        className="text-2xl text-custom-content-1 p-1 m-1"
+                        className="text-2xl gradient-text p-1 m-1"
                     >
                         {theme === "dark" ? (
                             <MdDarkMode />
