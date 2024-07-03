@@ -129,10 +129,6 @@ radial-gradient(at 43% 1%, hsla(38,45%,82%,0.19) 0px, transparent 50%); */
         --bg-contrast: 110%;
         --bg-brightness: 110%;
 
-        /* --mix-blend-mode: normal;
-        --bg-contrast: 100%;
-        --bg-brightness: 100%; */
-
         --bg-color: hsla(39, 45%, 82%, 1);
         --bg-image: radial-gradient(
                 at 1% 69%,
@@ -173,9 +169,9 @@ radial-gradient(at 43% 1%, hsla(38,45%,82%,0.19) 0px, transparent 50%); */
         --opp-content-1: 201 115 56;
         --opp-content-2: 230 216 189;
 
-        --opp-bg-3: 37 55 69;
-        --opp-bg-2: 17 33 45;
-        --opp-bg-1: 6 20 27;
+        --opp-bg-3: 165 77 39;
+        --opp-bg-2: 101 55 31;
+        --opp-bg-1: 40 33 25;
 
         --text-gradient-1: 146 128 120;
         --text-gradient-2: 243 182 153;
@@ -243,9 +239,9 @@ radial-gradient(at 43% 1%, hsla(38,45%,82%,0.19) 0px, transparent 50%); */
         --bg-contrast: 90%;
         --bg-brightness: 110%;
 
-        --opp-bg-1: 204 208 207;
-        --opp-bg-2: 155 168 171;
-        --opp-bg-3: 74 92 106;
+        --opp-bg-1: 230 216 189;
+        --opp-bg-2: 201 115 56;
+        --opp-bg-3: 165 77 39;
 
         --opp-accent-1: 15 60 54;
 

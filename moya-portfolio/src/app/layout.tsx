@@ -68,7 +68,7 @@ export default function RootLayout({
                             {contacts}
                         </main>
 
-                        <Navbar useFooter />
+                        {/* <Navbar useFooter /> */}
                     </StoreProvider>
                 </div>
             </body>

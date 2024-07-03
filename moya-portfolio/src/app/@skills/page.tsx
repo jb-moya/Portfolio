@@ -13,6 +13,7 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { FaReact } from "react-icons/fa";
 import { useSectionObserver } from "../_components/navbarSectionObserver";
 import { IconType } from "react-icons";
+import { sectionHeading } from "../_components/sectionHeading";
 
 const SkillIcon = ({ Icon, name }: { Icon: IconType; name: String }) => (
     <div className="flex flex-col">
@@ -41,14 +42,11 @@ export default function SkillsPage() {
 
     return (
         <section className="transition-colors h-96">
-            <div></div>
-            <h1
-                id="skills"
-                ref={sectionRef}
-                className="text-3xl text-center py-4"
-            >
-                Skills
-            </h1>
+            {sectionHeading({
+                id: "skills",
+                sectionName: "Skills",
+                sectionRef: sectionRef,
+            })}
             <div className="w-full p-2 flex text-center justify-center text-custom-content-2 space-x-4 flex-wrap">
                 {skills.map((item, index) => (
                     <SkillIcon key={index} Icon={item.icon} name={item.name} />

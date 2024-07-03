@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from "react";
 import { useSectionObserver } from "../_components/navbarSectionObserver";
 import Image from "next/image";
 import profile from "../assets/cherry.jpg";
+import { sectionHeading } from "../_components/sectionHeading";
 
 export default function AboutPage() {
     const sectionRef = useSectionObserver({
@@ -11,11 +12,13 @@ export default function AboutPage() {
 
     return (
         <section>
+            {sectionHeading({
+                id: "about",
+                sectionName: "About",
+                sectionRef: sectionRef,
+            })}
             <div className="flex">
                 <div className="text-lg w-8/12 px-4 content-center">
-                    <h1 id="about" ref={sectionRef} className="text-3xl py-4">
-                        About Me
-                    </h1>
                     <p className="mr-32">
                         Hi, I'm JB Vhert Moya, a passionate and driven junior
                         web developer with a love for creating dynamic and

@@ -14,24 +14,19 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { RiArrowDownWideFill } from "react-icons/ri";
 import { RiArrowRightUpLine } from "react-icons/ri";
-import { IoDocumentSharp } from "react-icons/io5";
+import { PiDotsThreeVerticalThin } from "react-icons/pi";
 
 export default function Home() {
     const scrollDownIndicator = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            const span = scrollDownIndicator.current;
-            const scrollTop = document.documentElement.scrollTop;
+            const { current: span } = scrollDownIndicator;
+            const { scrollTop } = document.documentElement;
 
-            if (!span) return;
-
-            if (scrollTop > 0) {
-                span.classList.add("opacity-0");
-                span.classList.remove("opacity-1");
-            } else {
-                span.classList.add("opacity-1");
-                span.classList.remove("opacity-0");
+            if (span) {
+                span.classList.toggle("opacity-0", scrollTop > 0);
+                span.classList.toggle("opacity-1", scrollTop === 0);
             }
         };
 
@@ -168,9 +163,12 @@ export default function Home() {
 
             <span
                 ref={scrollDownIndicator}
-                className="animate-customBounce fixed bottom-5 left-1/2 -translate-x-1/2 text-custom-content-2 transition-opacity duration-500 ease-in-out"
+                className="animate-customBounce fixed bottom-5 left-1/2 leading-none -translate-x-1/2 text-custom-content-2 transition-opacity duration-500 ease-in-out"
             >
-                <RiArrowDownWideFill size={20} />
+                <PiDotsThreeVerticalThin size={30} />
+                <div className="text-center mx-auto w-fit">
+                    <RiArrowDownWideFill size={15} />
+                </div>
             </span>
         </section>
     );

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { setTheme } from "../../lib/features/themeSlice";
@@ -12,6 +12,7 @@ import { RiArrowDropDownFill } from "react-icons/ri";
 import { BiCaretDown, BiCaretUp } from "react-icons/bi";
 
 const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
+    const scrollDownIndicator = useRef<HTMLSpanElement>(null);
     const { menuStates } = useSelector((state: RootState) => state.navbar);
     const { theme } = useSelector((state: RootState) => state.theme);
     const [dropDownShown, setDropDownShown] = useState(false);
@@ -23,8 +24,29 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
     };
 
     useEffect(() => {
-        console.log("wew", getSelectedMenu());
-    }, [menuStates]);
+        const handleScroll = () => {
+            const { current: navbarElement } = scrollDownIndicator;
+            const { scrollTop } = document.documentElement;
+
+            if (!navbarElement) return;
+
+            const { classList } = navbarElement;
+            const shouldAddClasses = scrollTop > 0;
+
+            classList.toggle("bg-custom-bg-1/25", shouldAddClasses);
+            classList.toggle("backdrop-blur-md", shouldAddClasses);
+            classList.toggle("shadow-md", shouldAddClasses);
+            classList.toggle("bg-transparent", !shouldAddClasses);
+            classList.toggle("shadow-none", !shouldAddClasses);
+            classList.toggle("backdrop-blur-0", !shouldAddClasses);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     const dispatch = useDispatch();
 
@@ -54,14 +76,14 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
             href: "#projects",
         },
         contacts: {
-            name: "Contacts",
+            name: "Contact",
             href: "#contacts",
         },
     };
 
     return (
         <>
-            <div className="block sm:hidden w-32 text-center top-5 z-50 mx-auto sticky text-custom-content-2/85 shadow-md">
+            <div className="block sm:hidden w-32 text-center top-2 z-50 mx-auto sticky text-custom-content-2/85 shadow-md">
                 <button
                     className="w-full flex items-center justify-between py-2 px-2 bg-custom-bg-1/55 backdrop-blur-md"
                     onClick={() => setDropDownShown(!dropDownShown)}
@@ -80,22 +102,24 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
                         { hidden: !dropDownShown }
                     )}
                 >
-                    {Object.entries(menus)
-                        .map(([key, menu]) => (
-                            <Link
-                                key={key}
-                                className="py-2 px-2 bg-custom-bg-1/55 hover:bg-custom-bg-3 backdrop-blur-md"
-                                href={menu.href}
-                                onClick={() => setDropDownShown(false)}
-                            >
-                                {menu.name}
-                            </Link>
-                        ))}
+                    {Object.entries(menus).map(([key, menu]) => (
+                        <Link
+                            key={key}
+                            className="py-2 px-2 bg-custom-bg-1/55 hover:bg-custom-bg-3 backdrop-blur-md"
+                            href={menu.href}
+                            onClick={() => setDropDownShown(false)}
+                        >
+                            {menu.name}
+                        </Link>
+                    ))}
                 </div>
             </div>
+
             <nav
+                ref={scrollDownIndicator}
                 className={classNames(
-                    "sm:block hidden w-[30rem] mx-auto text-custom-content-2/85 sticky top-5 z-50 px-2 bg-custom-bg-1/55 backdrop-blur-md shadow-md"
+                    "sm:block hidden w-[30rem] mx-auto text-custom-content-2/85 sticky top-2 z-50 px-2 transition-all duration-500 ease-in-out"
+                    // "bg-custom-bg-1/25 backdrop-blur-md shadow-md"
                 )}
             >
                 <div className="flex space-x-4 items-center">
