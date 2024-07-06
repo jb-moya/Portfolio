@@ -15,11 +15,12 @@ export default function ProjectPage() {
         <section className="">
             {sectionHeading({
                 id: "projects",
-                sectionName: "Projects",
+                firstSectionName: "Featured",
+                secondSectionName: "Projects",
                 sectionRef: sectionRef,
             })}
 
-            <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4 px-10">
+            <div className=" grid grid-cols-1 gap-4">
                 <Card title="Ecommerce" />
                 <Card title="Example Landing Page" />
                 <Card title="Web Scraping" />

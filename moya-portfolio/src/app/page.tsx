@@ -76,20 +76,20 @@ export default function Home() {
             text: "linkedIn",
             icon: <FaLinkedin size={20} />,
             url: "https://www.linkedin.com/in/jbvhert/",
-            classNames: "px-2 border gradient-border",
+            classNames: "px-2 border hover:bg-custom-bg-2 gradient-border",
             iconClassNames: "mr-1",
         },
         {
             text: "indeed",
             icon: <SiIndeed size={20} />,
             url: "https://www.indeed.com/career-advice/career-development/how-to-become-a-full-stack-developer",
-            classNames: "px-2 border gradient-border",
+            classNames: "px-2 border hover:bg-custom-bg-2 gradient-border",
             iconClassNames: "mr-1",
         },
         {
             text: "get my resume",
             url: "https://www.indeed.com/career-advice/career-development/how-to-become-a-full-stack-developer",
-            classNames: "p-0 m-0",
+            classNames: "p-0 m-0 hover:border-b  border-opacity-0 hover:border-opacity-100",
             openPageIcon: true,
         },
     ];
@@ -99,7 +99,7 @@ export default function Home() {
         "";
 
     return (
-        <section className="flex h-[720px] text-custom-content-1 flex-col sm:flex-row items-center justify-between mx-auto">
+        <section className="flex h-[820px] text-custom-content-1 flex-col sm:flex-row items-center justify-between mx-auto">
             <div id="home" ref={sectionRef}></div>
             <div className="w-full my-auto flex space-x-4 space-y-4 justify-center">
                 <div className="text-center flex">
@@ -107,22 +107,21 @@ export default function Home() {
                         <div className="sm:w-7/12 px-5 pt-5 text-center w-12/12 sm:pr-10 sm:text-left sm:order-1 order-2">
                             <h1
                                 // className={`font-bold text-2xl text-stroke`}
-                                className={`font-bold text-2xl text-custom-content-2 ${shadowedWord}`}
+                                className={`font-bold text-2xl text-custom-content-2 ${shadowedWord} opacity-0 animate-fadeInRight animation-delay-100`}
                             >
                                 Hi, I'm JB Moya
                             </h1>
-                            <p className="text-custom-content-2">
+                            <p className="text-custom-content-2 animate-fade-in-top">
                                 I am currently a final year undergraduate
                                 student aspiring to be a
                             </p>
                             <p
-                                // className={`font-extrabold text-6xl pt-2 text-stroke `}
-                                className={`font-extrabold text-6xl pt-2 ${shadowedWord} gradient-text`}
+                                className={`font-extrabold text-6xl pt-2 ${shadowedWord} gradient-text opacity-0 animate-fadeInRight animation-delay-200`}
                             >
                                 Full-Stack Developer
                             </p>
 
-                            <div className="w-full flex flex-wrap mt-6 justify-center sm:justify-normal">
+                            <div className="w-full flex flex-wrap mt-4 justify-center sm:justify-normal animate-fade-in-top animation-delay-300">
                                 {linkButtons.map((item, index) => (
                                     <a
                                         key={index}
@@ -147,7 +146,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="sm:w-5/12 mr-0 sm:mr-5 sm:mt-0 mt-10 w-8/12 sm:order-1 aspect-square box-border self-center p-4 gradient-border border shadow-md">
+                        <div className="sm:w-5/12 mr-0 sm:mr-5 sm:mt-0 mt-10 w-8/12 sm:order-1 aspect-square box-border self-center p-4 gradient-border border shadow-md opacity-0 animate-fadeInRight animation-delay-500">
                             <Image
                                 src={profile}
                                 className="w-full h-full object-cover"
@@ -163,7 +162,7 @@ export default function Home() {
 
             <span
                 ref={scrollDownIndicator}
-                className="animate-customBounce fixed bottom-5 left-1/2 leading-none -translate-x-1/2 text-custom-content-2 transition-opacity duration-500 ease-in-out"
+                className="animate-customBounce border border-custom-content-2 fixed bottom-32 left-1/2 leading-none -translate-x-1/2 text-custom-content-2 transition-opacity duration-500 ease-in-out"
             >
                 <PiDotsThreeVerticalThin size={30} />
                 <div className="text-center mx-auto w-fit">

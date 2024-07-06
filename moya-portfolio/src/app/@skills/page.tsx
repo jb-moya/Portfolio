@@ -16,9 +16,9 @@ import { IconType } from "react-icons";
 import { sectionHeading } from "../_components/sectionHeading";
 
 const SkillIcon = ({ Icon, name }: { Icon: IconType; name: String }) => (
-    <div className="flex flex-col">
-        <Icon className="bg-clip-text text-[100px] bg-gradient-to-r from-pink-500 to-violet-500" />
-        <div className="mt-2">{name}</div>
+    <div className="flex flex-col justify-center items-center">
+        <Icon className="bg-clip-text text-5xl bg-gradient-to-r from-pink-500 to-violet-500" />
+        <div className="mt-2 text-sm">{name}</div>
     </div>
 );
 
@@ -44,7 +44,8 @@ export default function SkillsPage() {
         <section className="transition-colors h-96">
             {sectionHeading({
                 id: "skills",
-                sectionName: "Skills",
+                firstSectionName: "My",
+                secondSectionName: "Skills",
                 sectionRef: sectionRef,
             })}
             <div className="w-full p-2 flex text-center justify-center text-custom-content-2 space-x-4 flex-wrap">

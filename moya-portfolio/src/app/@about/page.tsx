@@ -14,12 +14,13 @@ export default function AboutPage() {
         <section>
             {sectionHeading({
                 id: "about",
-                sectionName: "About",
+                firstSectionName: "A little bit",
+                secondSectionName: "About me",
                 sectionRef: sectionRef,
             })}
-            <div className="flex">
-                <div className="text-lg w-8/12 px-4 content-center">
-                    <p className="mr-32">
+            <div className="px-4">
+                <div className="content-center">
+                    <p className="">
                         Hi, I'm JB Vhert Moya, a passionate and driven junior
                         web developer with a love for creating dynamic and
                         interactive web experiences. My projects reflect my keen
@@ -34,16 +35,20 @@ export default function AboutPage() {
                         enthusiasm to every project I work on.
                     </p>
                 </div>
-                <div className="bg-custom-bg-2 w-4/12 aspect-square box-border self-center rounded-full shadow-md">
-                    <Image
-                        src={profile}
-                        className="w-full h-full rounded-full object-cover"
-                        width={100}
-                        height={100}
-                        alt="profile"
-                    />
+                <div className="flex mt-6">
+                    <div className="mr-3">Education</div>
+                    <div className="flex flex-col">
+                        <div>
+                            <span className="font-bold text-custom-content-1">
+                                Technological University of the Philippines - Manila
+                            </span>
+                            <span className="ml-3 text-sm font-thin">
+                                Aug 2022 - Aug 2025
+                            </span>
+                        </div>
+                        <span className="">Bachelor - Computer Science</span>
+                    </div>
                 </div>
-                {/* <div className="text-center text-custom-content-2"> */}
             </div>
         </section>
     );

@@ -118,7 +118,7 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
             <nav
                 ref={scrollDownIndicator}
                 className={classNames(
-                    "sm:block hidden w-[30rem] mx-auto text-custom-content-2/85 sticky top-2 z-50 px-2 transition-all duration-500 ease-in-out"
+                    "sm:block hidden w-[30rem] mx-auto text-custom-content-2/85 sticky top-2 z-50 px-2 transition-all duration-500 ease-in-out animate-fade-in-top animation-delay-300"
                     // "bg-custom-bg-1/25 backdrop-blur-md shadow-md"
                 )}
             >

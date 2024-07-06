@@ -1,18 +1,28 @@
 import React from "react";
 
 export const sectionHeading = ({
-    sectionName,
+    firstSectionName,
+    secondSectionName,
     sectionRef,
-    id
+    id,
 }: {
-    sectionName: String;
+    firstSectionName: String;
+    secondSectionName?: String;
     sectionRef?: any;
-    id?: string
+    id?: string;
 }) => {
     return (
-        <div id={id} className="text-3xl flex my-7 items-center" ref={sectionRef}>
-            <span className="border-b w-full mr-5 border-custom-content-1/50"></span>
-            <span className="text-nowrap text-custom-bg-3">{sectionName}</span>
+        <div
+            id={id}
+            className="text-3xl flex my-7 items-center"
+            ref={sectionRef}
+        >
+            <span className="text-nowrap text-custom-content-2">
+                {firstSectionName}
+            </span>
+            <span className="text-nowrap text-custom-content-1 gradient-text ml-3 font-extrabold">
+                {secondSectionName}
+            </span>
             <span className="border-b w-full ml-5 border-custom-content-1/50"></span>
         </div>
     );

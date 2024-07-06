@@ -12,46 +12,50 @@ export default function ContactsPage() {
         <section>
             {sectionHeading({
                 id: "contacts",
-                sectionName: "Get in Touch!",
+                firstSectionName: "Get",
+                secondSectionName: "in Touch!",
                 sectionRef: sectionRef,
             })}
-            <div className="h-[500px]">
+            <div className="h-[500px] p-5">
                 {/* make a contact form */}
-                <form className="flex flex-col gap-4 border border-custom-opp-bg-1 p-10">
-                    <div className="flex">
-                        <div className="w-7/12">
+                <form className="border border-custom-opp-bg-1 border-opacity-25 p-10">
+                    <div className="flex sm:flex-row flex-col">
+                        <div className="sm:w-7/12 w-full">
                             <div className="relative pb-2">
                                 <input
                                     type="text"
-                                    className="w-full pt-8 bg-transparent border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
+                                    className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                 />
-                                <div className="left-0 text-custom-content-2/50 -top-0 p-1 absolute">
+                                <div className="left-0 font-thin text-custom-opp-bg-1 backdrop-blur-md -top-0 p-1 absolute">
                                     name
                                 </div>
                             </div>
                             <div className="relative pb-2">
                                 <input
                                     type="email"
-                                    className="w-full pt-8 bg-transparent border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
+                                    className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                 />
-                                <div className="left-0 text-custom-content-2/50 -top-0 p-1 absolute">
+                                <div className="left-0 font-thin text-custom-opp-bg-1 backdrop-blur-md -top-0 p-1 absolute">
                                     email
                                 </div>
                             </div>
                             <div className="relative pb-2">
-                                <textarea className="w-full pt-8 bg-transparent border-b border-b-custom-opp-bg-1 border-opacity-30 px-4" />
-                                <div className="left-0 text-custom-content-2/50 -top-0 p-1 absolute">
-                                    message
+                                <textarea
+                                    rows={1}
+                                    className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
+                                />
+                                <div className="left-0 font-thin text-custom-opp-bg-1 backdrop-blur-md -top-0 p-1 absolute">
+                                    what&apos;s on your mind?
                                 </div>
                             </div>
                         </div>
 
-                        <div className="w-5/12 px-6">
+                        <div className="w-5/12 sm:px-6 px-0">
                             <h1 className="text-lg font-bold">Contact</h1>
                             <p>jbvhert2002@gmail.com</p>
                         </div>
                     </div>
-                    <button className="bg-custom-primary text-white w-5/12 bg-custom-bg-2 shadow-md px-4 py-2">
+                    <button className="bg-custom-primary text-white w-5/12 bg-custom-bg-2 shadow-md px-4 py-2 mt-10">
                         Submit
                     </button>
                 </form>

@@ -1,6 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 const svgToDataUri = require("mini-svg-data-uri");
+const plugin = require("tailwindcss/plugin");
 
 const colors = require("tailwindcss/colors");
 const {
@@ -84,11 +85,35 @@ const config: Config = {
                         transform: "translateY(-75%)",
                         "animation-timing-function":
                             "cubic-bezier(0.8, 0, 1, 1)",
+                        "border-color": "rgba(201, 115, 56, 0)",
                     },
                     "50%": {
                         transform: "translateY(0)",
                         "animation-timing-function":
                             "cubic-bezier(0, 0, 0.2, 1)",
+                        "border-color": "rgba(201, 115, 56, 1)",
+                    },
+                },
+
+                fadeInRight: {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translateX(50px)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translateX(0)",
+                    },
+                },
+
+                "fade-in-top": {
+                    "0%": {
+                        transform: "translateY(-10px)",
+                        opacity: "0",
+                    },
+                    "100%": {
+                        transform: "translateY(0)",
+                        opacity: "1",
                     },
                 },
             },
@@ -96,6 +121,11 @@ const config: Config = {
             animation: {
                 wiggle: "wiggle 6s ease-in-out infinite",
                 customBounce: "customBounce 2s ease-in-out infinite",
+                fadeInRight:
+                    "fadeInRight 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both",
+
+                "fade-in-top":
+                    "fade-in-top 1s cubic-bezier(0.39, 0.575, 0.565, 1) both",
             },
 
             fontFamily: {
@@ -105,30 +135,56 @@ const config: Config = {
     },
     plugins: [
         // addVariablesForColors,
-        function ({ matchUtilities, theme }: any) {
+        plugin(({ matchUtilities, theme }: any) => {
             matchUtilities(
                 {
-                    "bg-grid": (value: any) => ({
-                        backgroundImage: `url("${svgToDataUri(
-                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-                        )}")`,
-                    }),
-                    "bg-grid-small": (value: any) => ({
-                        backgroundImage: `url("${svgToDataUri(
-                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-                        )}")`,
-                    }),
-                    "bg-dot": (value: any) => ({
-                        backgroundImage: `url("${svgToDataUri(
-                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
-                        )}")`,
-                    }),
+                    "animation-delay": (value: any) => {
+                        return {
+                            "animation-delay": value,
+                        };
+                    },
                 },
                 {
-                    values: flattenColorPalette(theme("backgroundColor")),
-                    type: "color",
+                    values: theme("transitionDelay"),
                 }
             );
+        }),
+        function ({ matchUtilities, theme }: any) {
+            // matchUtilities(
+            //     {
+            //         "bg-grid": (value: any) => ({
+            //             backgroundImage: `url("${svgToDataUri(
+            //                 `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            //             )}")`,
+            //         }),
+            //         "bg-grid-small": (value: any) => ({
+            //             backgroundImage: `url("${svgToDataUri(
+            //                 `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            //             )}")`,
+            //         }),
+            //         "bg-dot": (value: any) => ({
+            //             backgroundImage: `url("${svgToDataUri(
+            //                 `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
+            //             )}")`,
+            //         }),
+            //     },
+            //     {
+            //         values: flattenColorPalette(theme("backgroundColor")),
+            //         type: "color",
+            //     }
+            // );
+            // matchUtilities(
+            //     {
+            //         "animation-delay": (value: any) => {
+            //             return {
+            //                 "animation-delay": value,
+            //             };
+            //         },
+            //     },
+            //     {
+            //         values: theme("transitionDelay"),
+            //     }
+            // );
         },
     ],
 };
