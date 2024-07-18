@@ -21,16 +21,16 @@ export default function AboutPage() {
             <div className="px-4">
                 <div className="content-center">
                     <p className="">
-                        Hi, I'm JB Vhert Moya, a passionate and driven junior
-                        web developer with a love for creating dynamic and
-                        interactive web experiences. My projects reflect my keen
-                        interest in blending the beauty of nature with the
+                        Hi, I&apos;m JB Vhert Moya, a passionate and driven
+                        junior web developer with a love for creating dynamic
+                        and interactive web experiences. My projects reflect my
+                        keen interest in blending the beauty of nature with the
                         precision of code, creating websites that are both
-                        aesthetically pleasing and highly functional. I'm
+                        aesthetically pleasing and highly functional. I&apos;m
                         continuously learning and eager to take on new
-                        challenges, whether it's building responsive layouts,
+                        challenges, whether it&apos;s building responsive layouts,
                         optimizing web performance, or exploring new front-end
-                        technologies. I'm excited to collaborate and grow in the
+                        technologies. I&apos;m excited to collaborate and grow in the
                         tech community, bringing my unique perspective and
                         enthusiasm to every project I work on.
                     </p>
