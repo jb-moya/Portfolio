@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.char {
+    font-size: 40px;
+    height: 40px;
+    animation: an 1s ease-out both;
+    display: inline-block;
+}
+
+@keyframes an {
+    from {
+        opacity: 0;
+        transform: perspective(500px) translate3d(-35px, -40px, -150px)
+            rotate3d(1, -1, 0, 35deg);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(500px) translate3d(0, 0, 0);
+    }
+}
+
+.noise {
+    position: fixed;
+    z-index: -1;
+}
+
+.noise::before,
+.noise::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    mix-blend-mode: var(--mix-blend-mode);
+
+    background-attachment: fixed, fixed, fixed, fixed, fixed;
+    background-size: cover, cover, cover, cover, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+}
+
+.noise::before {
+    filter: url(#noiseFilter) opacity(0.4);
+}
+
+.noise::after {
+    filter: contrast(var(--bg-contrast)) brightness(var(--bg-brightness));
+    background: var(--bg-color);
+    background-image: var(--bg-image);
+}
+
+.gradient-text {
+    background: var(--text-gradient);
+
+    clip: text;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-bottom-border {
+    border-block-end: 1px solid;
+    padding-block-end: 4px;
+    border-image-source: linear-gradient(
+        156deg,
+        rgb(var(--text-gradient-1)) 0%,
+        rgb(var(--text-gradient-2)) 100%
+    );
+    border-image-slice: 1;
+}
+
+.gradient-border {
+    border-image-source: var(--text-gradient);
+    border-image-slice: 1;
+    border-bottom: 2px solid transparent;
+}
+
+.gradient-background {
+    background: rgb(243, 182, 153);
+    background: var(--text-gradient);
+}
+
+.text-stroke {
+    -webkit-text-stroke: 0.5px rgb(var(--content-1));
+}
+
+@layer base {
+    :root {
+        /* set here independent colors */
+        --s-c-1: 17 24 34;
+        --s-c-2: 51 55 64;
+        --s-c-3: 138 136 136;
+        --s-c-4: 79 54 42;
+        --s-c-5: 116 88 80;
+        --s-c-6: 243 182 153;
+    }
+
+    :root[data-theme="light"] {
+        --text-gradient: linear-gradient(
+            to right bottom,
+            #c97338,
+            #c26c35,
+            #bc6431,
+            #b55d2e,
+            #ae562b,
+            #a55129,
+            #9d4d27,
+            #944825,
+            #884423,
+            #7c4022,
+            #703b20,
+            #65371f
+        );
+
+        --mix-blend-mode: multiply;
+        /* --bg-contrast: 60%; */
+        /* --bg-brightness: 155%; */
+
+        --bg-contrast: 100%;
+        --bg-brightness: 100%;
+
+        --bg-color: hsla(39, 45%, 82%, 1);
+        --bg-image: radial-gradient(
+                at 1% 69%,
+                hsla(19, 53%, 25%, 0.07) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 11% 4%,
+                hsla(19, 53%, 25%, 0.13) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 16% 120%,
+                hsla(23, 56%, 50%, 0.49) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 107% 63%,
+                hsla(19, 53%, 25%, 0.32) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 43% 1%,
+                hsla(38, 45%, 82%, 0.19) 0px,
+                transparent 50%
+            );
+
+        --test2: rgb(231, 201, 172);
+
+        --bg-1: 230 216 189;
+        --bg-2: 201 115 56;
+        --bg-3: 165 77 39;
+
+        --content-1: 201 115 56;
+        --content-2: 101 55 31;
+        --opp-content-1: 201 115 56;
+        --opp-content-2: 230 216 189;
+
+        --opp-bg-3: 165 77 39;
+        --opp-bg-2: 101 55 31;
+        --opp-bg-1: 40 33 25;
+
+        --text-gradient-1: 146 128 120;
+        --text-gradient-2: 243 182 153;
+    }
+
+    /* 230 216 189 */
+    /* 201 115 56 */
+    /* 165 77 39 */
+    /* 101 55 31 */
+    /* 40 33 25 */
+
+    /* 
+    #e6d8bd
+    #c97338
+    #a54d27
+    #65371f
+    #282119
+    */
+
+    :root[data-theme="dark"] {
+        --text-gradient: linear-gradient(
+            to right bottom,
+            #e6d8bd,
+            #dfc6a0,
+            #d9b485,
+            #d4a16c,
+            #cf8e54,
+            #ca8249,
+            #c5763e,
+            #c06934,
+            #b96231,
+            #b35b2d,
+            #ac542a,
+            #a54d27
+        );
+
+        --content-1: 201 115 56;
+        --content-2: 230 216 189;
+        --opp-content-1: 201 115 56;
+        --opp-content-2: 101 55 31;
+
+        --mix-blend-mode: multiply;
+        --bg-color: hsla(32, 23%, 12%, 1);
+        --bg-image: radial-gradient(
+                at 0% 29%,
+                hsla(23, 56%, 50%, 0.13) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 90% 42%,
+                hsla(17, 61%, 40%, 0.16) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 53% 95%,
+                hsla(19, 53%, 25%, 0.36) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 39% 0%,
+                hsla(17, 61%, 40%, 0.14) 0px,
+                transparent 50%
+            );
+
+        /* --bg-contrast: 80%; */
+        /* --bg-brightness: 60%; */
+
+        --bg-contrast: 100%;
+        --bg-brightness: 100%;
+
+        --opp-bg-1: 230 216 189;
+        --opp-bg-2: 201 115 56;
+        --opp-bg-3: 165 77 39;
+
+        --opp-accent-1: 15 60 54;
+
+        --accent-1: 15 60 54;
+        /* --content-2: 155 168 171; */
+        /* --content-2: 51 55 64; */
+        /* --content-2: 116 88 80; */
+
+        --bg-3: 165 77 39;
+        --bg-2: 101 55 31;
+        --bg-1: 40 33 25; /* Eerie Black */
+
+        --text-gradient-1: 243 182 153;
+        --text-gradient-2: 116 88 80;
+    }
+}
