@@ -111,7 +111,7 @@ export default function Home() {
                                 // className={`font-bold text-2xl text-stroke`}
                                 className={`font-bold text-2xl text-custom-content-2 ${shadowedWord} opacity-0 animate-[fadeInRight_700ms_cubic-bezier(.9,.1,.1,.9)_200ms_forwards]`}
                             >
-                                Hi, I'm JB Moya
+                                Hi, I&apos;m JB Moya
                             </h1>
                             <p className="text-custom-content-2 animate-fade-in-top">
                                 I am currently a final year undergraduate
@@ -154,7 +154,7 @@ export default function Home() {
                             <Image
                                 src={profile2}
                                 className={classNames(
-                                    "w-full h-full object-cover gradient-border border overflow-hidden relative",
+                                    "w-full h-full object-cover gradient-border border overflow-hidden relative"
                                     // "after:content-none after:absolute after:bottom-0 after:left-0 after:bg-faded-border after:rounded-bl-3xl after:pointer-events-none after:w-32 after:h-32"
                                 )}
                                 width={1000}
