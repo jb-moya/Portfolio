@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useSectionObserver } from "../_components/navbarSectionObserver";
 import Image from "next/image";
 import profile from "../assets/cherry.jpg";
@@ -40,7 +40,8 @@ export default function AboutPage() {
                     <div className="flex flex-col">
                         <div>
                             <span className="font-bold text-custom-content-1">
-                                Technological University of the Philippines - Manila
+                                Technological University of the Philippines -
+                                Manila
                             </span>
                             <span className="ml-3 text-sm">
                                 Aug 2022 - Aug 2025

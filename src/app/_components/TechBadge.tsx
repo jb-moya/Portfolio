@@ -1,3 +1,5 @@
+
+
 const TechBadge = ({ name }: { name: String }) => {
     return (
         <span className="item flex max-w-screen-sm items-center justify-center mr-1 mt-1">

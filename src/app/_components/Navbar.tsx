@@ -6,7 +6,7 @@ import { setTheme } from "../../lib/features/themeSlice";
 
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import { RootState } from "@/lib/store";
+import { RootState } from "../../lib/store";
 import classNames from "classnames";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import { BiCaretDown, BiCaretUp } from "react-icons/bi";

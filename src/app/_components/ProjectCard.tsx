@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import TechBadge from "./TechBadge";
+import React from "react";
 
 const Card = ({
     title,

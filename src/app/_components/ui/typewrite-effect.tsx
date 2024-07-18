@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/../utils/cn";
+import { cn } from "@/../../utils/cn";
 import classNames from "classnames";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
@@ -51,7 +51,10 @@ export const TypewriterEffect = ({
             <motion.div ref={scope} className="inline">
                 {wordsArray.map((word, idx) => {
                     return (
-                        <div key={`word-${idx}`} className={cn("inline-block pr-4")}>
+                        <div
+                            key={`word-${idx}`}
+                            className={cn("inline-block pr-4")}
+                        >
                             {word.text.map((char, index) => (
                                 <motion.span
                                     initial={{}}
@@ -61,7 +64,7 @@ export const TypewriterEffect = ({
                                         word.className
                                     )}
                                 >
-                                    {char} 
+                                    {char}
                                 </motion.span>
                             ))}
                             &nbsp;

@@ -1,5 +1,7 @@
 "use client";
 
+import React from "react";
+
 const ProjectArticle = () => {
     return (
         <div className="border border-1 p-2 border-custom-bg-2 rounded w-[600px]">
