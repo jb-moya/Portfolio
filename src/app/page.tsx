@@ -96,10 +96,6 @@ export default function Home() {
         },
     ];
 
-    const shadowedWord =
-        // "[text-shadow:_-1px_1px_0_rgb(79_54_42_/_100%),_1px_-1px_0_rgb(79_54_42_/_100%)]";
-        "";
-
     return (
         <section className="flex flex-col text-custom-content-1 items-center justify-between mx-auto">
             <div id="home" ref={sectionRef}></div>
@@ -109,21 +105,21 @@ export default function Home() {
                         <div className="sm:w-7/12 px-5 pt-5 text-center w-12/12 sm:pr-10 sm:text-left sm:order-1 order-2">
                             <h1
                                 // className={`font-bold text-2xl text-stroke`}
-                                className={`font-bold text-2xl text-custom-content-2 ${shadowedWord} opacity-0 animate-[fadeInRight_700ms_cubic-bezier(.9,.1,.1,.9)_200ms_forwards]`}
+                                className={`font-bold text-2xl text-custom-content-2 opacity-0 animate-[fadeInRight_1700ms_cubic-bezier(.9,.1,.1,.9)_100ms_forwards]`}
                             >
                                 Hi, I&apos;m JB Moya
                             </h1>
-                            <p className="text-custom-content-2 animate-fade-in-top">
+                            <p className="text-custom-content-2 animate-[fadeInRight_1700ms_cubic-bezier(.9,.1,.1,.9)_150ms_forwards]">
                                 I am currently a final year undergraduate
                                 student aspiring to be a
                             </p>
                             <p
-                                className={`font-extrabold text-6xl pt-2 ${shadowedWord} gradient-text opacity-0 animate-[fadeInRight_1500ms_cubic-bezier(.9,.1,.1,.9)_500ms_forwards]`}
+                                className={`font-extrabold text-6xl pt-2 gradient-text opacity-0 animate-[fadeInRight_1700ms_cubic-bezier(.9,.1,.1,.9)_200ms_forwards]`}
                             >
                                 Full-Stack Developer
                             </p>
 
-                            <div className="w-full flex flex-wrap mt-4 justify-center sm:justify-normal animate-fade-in-top animation-delay-300">
+                            <div className="w-full flex flex-wrap mt-4 justify-center sm:justify-normal animate-[fadeInRight_1700ms_cubic-bezier(.9,.1,.1,.9)_250ms_forwards]">
                                 {linkButtons.map((item, index) => (
                                     <a
                                         key={index}
@@ -150,7 +146,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="sm:w-5/12 mr-0 sm:mr-5 sm:mt-0 mt-10 w-8/12 sm:order-1 aspect-square box-border self-center p-4 gradient-border border shadow-md opacity-0 animate-[fadeInRight_2500ms_cubic-bezier(.9,.1,.1,.9)_900ms_forwards] animation-delay-500">
+                        <div className="sm:w-5/12 mr-0 sm:mr-5 sm:mt-0 mt-10 w-8/12 sm:order-1 aspect-square box-border self-center p-4 gradient-border border shadow-md opacity-0 animate-[fadeInRight_2000ms_cubic-bezier(.9,.1,.1,.9)_300ms_forwards]">
                             <Image
                                 src={profile2}
                                 className={classNames(

@@ -11,6 +11,15 @@ export default function ProjectPage() {
         sectionName: "Projects",
     });
 
+    const SwishToDoApp = {
+        title: "Swish: ToDo App",
+        description: `Swish: ToDo App is a dynamic and secure Todo application built with Firebase that utilizes ChakraUI for its attractive design. It enables users to create, read, 
+        update, and delete tasks, while ensuring that each user's data is kept private and 
+        accessible only to them through Firebase's authentication services.`,
+
+        tech: ["React", "ChakraUI", "Firebase"],
+    };
+
     return (
         <section className="">
             {sectionHeading({
@@ -21,7 +30,11 @@ export default function ProjectPage() {
             })}
 
             <div className=" grid grid-cols-1 gap-4">
-                <Card title="Ecommerce" />
+                <Card
+                    title={SwishToDoApp.title}
+                    description={SwishToDoApp.description}
+                    tech={SwishToDoApp.tech}
+                />
                 <Card title="Example Landing Page" />
                 <Card title="Web Scraping" />
                 <Card title="A Game" />

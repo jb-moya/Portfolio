@@ -7,9 +7,11 @@ import React from "react";
 const Card = ({
     title,
     description,
+    tech,
 }: {
     title?: String;
     description?: String;
+    tech?: String[];
 }) => {
     return (
         <>
@@ -25,23 +27,23 @@ const Card = ({
                 <div className="p-4">
                     <h1 className="font-bold text-lg">{title ? title : ""}</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Dolore, harum? Lorem ipsum dolor sit, amet consectetur
-                        adipisicing elit. Distinctio architecto officia ut, sint
-                        ratione magni id? Eos tempore odio eligendi fugiat amet
-                        nostrum perferendis, nobis autem beatae illo sequi
-                        maiores.
+                        {description && description}
                     </p>
                 </div>
-                <div className="flex flex-wrap px-4 pb-1">
-                    <TechBadge name="HTML" />
-                    <TechBadge name="Javascript" />
-                    <TechBadge name="Css" />
-                    <TechBadge name="NextJs" />
+                <div className="flex flex-wrap px-4 pb-1 my-3">
+
+                    {tech
+                        ? tech.map((tech) => (
+                              <>
+                                  <TechBadge name={tech} />
+                              </>
+                          ))
+                        : ""}
+                    {/* <TechBadge name="NextJs" />
                     <TechBadge name="HTML" />
                     <TechBadge name="Tailwind" />
                     <TechBadge name="TypeScript" />
-                    <TechBadge name="SCSS" />
+                    <TechBadge name="SCSS" /> */}
                 </div>
             </article>
         </>
@@ -49,4 +51,3 @@ const Card = ({
 };
 
 export default Card;
-
