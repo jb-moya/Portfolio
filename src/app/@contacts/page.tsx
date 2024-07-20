@@ -26,7 +26,7 @@ export default function ContactsPage() {
                                     type="text"
                                     className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                 />
-                                <div className="left-0 font-thin text-custom-opp-bg-1 backdrop-blur-md -top-0 p-1 absolute">
+                                <div className="left-0 font-thin text-custom-opp-bg-1 -top-0 p-1 absolute">
                                     name
                                 </div>
                             </div>
@@ -35,7 +35,7 @@ export default function ContactsPage() {
                                     type="email"
                                     className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                 />
-                                <div className="left-0 font-thin text-custom-opp-bg-1 backdrop-blur-md -top-0 p-1 absolute">
+                                <div className="left-0 font-thin text-custom-opp-bg-1 -top-0 p-1 absolute">
                                     email
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ export default function ContactsPage() {
                                     rows={1}
                                     className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                 />
-                                <div className="left-0 font-thin text-custom-opp-bg-1 backdrop-blur-md -top-0 p-1 absolute">
+                                <div className="left-0 font-thin text-custom-opp-bg-1 -top-0 p-1 absolute">
                                     what&apos;s on your mind?
                                 </div>
                             </div>

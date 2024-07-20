@@ -43,7 +43,6 @@ const config: Config = {
                     "static-3": "rgb(var(--s-c-3))",
                     "static-4": "rgb(var(--s-c-4))",
                     "static-5": "rgb(var(--s-c-5))",
-                    "static-6": "rgb(var(--s-c-6))",
 
                     "bg-1": "rgb(var(--bg-1) / <alpha-value>)",
                     "bg-2": "rgb(var(--bg-2) / <alpha-value>)",

@@ -90,29 +90,24 @@
 @layer base {
     :root {
         /* set here independent colors */
-        --s-c-1: 17 24 34;
-        --s-c-2: 51 55 64;
-        --s-c-3: 138 136 136;
-        --s-c-4: 79 54 42;
-        --s-c-5: 116 88 80;
-        --s-c-6: 243 182 153;
+        --s-c-1: 230 216 189;
+        --s-c-2: 201 115 56;
+        --s-c-3: 165 77 39;
+        --s-c-4: 101 55 31;
+        --s-c-5: 40 33 25;
     }
 
     :root[data-theme="light"] {
         --text-gradient: linear-gradient(
             to right bottom,
-            #c97338,
-            #c26c35,
-            #bc6431,
-            #b55d2e,
-            #ae562b,
-            #a55129,
-            #9d4d27,
-            #944825,
-            #884423,
-            #7c4022,
-            #703b20,
-            #65371f
+            #d9b485,
+            #d4a16c,
+            #cf8e54,
+            #ca8249,
+            #c5763e,
+            #c06934,
+            #b96231,
+            #b35b2d
         );
 
         --mix-blend-mode: multiply;
@@ -185,8 +180,6 @@
     :root[data-theme="dark"] {
         --text-gradient: linear-gradient(
             to right bottom,
-            #e6d8bd,
-            #dfc6a0,
             #d9b485,
             #d4a16c,
             #cf8e54,
@@ -194,9 +187,7 @@
             #c5763e,
             #c06934,
             #b96231,
-            #b35b2d,
-            #ac542a,
-            #a54d27
+            #b35b2d
         );
 
         --content-1: 201 115 56;

@@ -18,6 +18,10 @@ export default function ProjectPage() {
         accessible only to them through Firebase's authentication services.`,
 
         tech: ["React", "ChakraUI", "Firebase"],
+
+        websiteLink: "https://swish-to-do.vercel.app/",
+
+        githubLink: "https://github.com/jb-moya/Swish--ToDoApp",
     };
 
     return (
@@ -34,6 +38,8 @@ export default function ProjectPage() {
                     title={SwishToDoApp.title}
                     description={SwishToDoApp.description}
                     tech={SwishToDoApp.tech}
+                    websiteLink={SwishToDoApp.websiteLink}
+                    githubLink={SwishToDoApp.githubLink}
                 />
                 <Card title="Example Landing Page" />
                 <Card title="Web Scraping" />
