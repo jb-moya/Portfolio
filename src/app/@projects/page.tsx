@@ -35,8 +35,7 @@ export default function ProjectPage() {
         },
         {
             title: "TUP E-commerce",
-            description: `A campus online store for the Technological University of the Philippines - Manila to help schools accredited clubs and organizations to advertise and sell their merchandises.,
-            enabling players to compete against an AI opponent enhanced with a Markov Chain decision-making algorithm`,
+            description: `A campus online store for the Technological University of the Philippines - Manila to help schools accredited clubs and organizations to advertise and sell their merchandises.`,
             tech: [
                 "Tailwind CSS",
                 "React",
@@ -54,8 +53,7 @@ export default function ProjectPage() {
                 "/tup-ecommerce-images/tup-6.png",
                 "/tup-ecommerce-images/tup-7.png",
             ],
-            githubLink:
-                "https://github.com/jb-moya/RPS-hand-gesture-detection-game",
+            githubLink: "https://github.com/jb-moya/TUP-Ecommerce",
         },
         {
             title: "Swish: ToDo App",
@@ -93,7 +91,8 @@ export default function ProjectPage() {
             enabling players to compete against an AI opponent enhanced with a Markov Chain decision-making algorithm`,
             tech: ["React", "SCSS", "Python", "YOLOv8"],
             images: ["/rps-images/janken-1.gif"],
-            githubLink: "github.com/jb-moya/RPS-hand-gesture-detection-game",
+            githubLink:
+                "https://github.com/jb-moya/RPS-hand-gesture-detection-game",
         },
     ];
 
