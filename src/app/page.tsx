@@ -67,7 +67,7 @@ export default function Home() {
         {
             text: "Github",
             icon: <FaGithub />,
-            url: "https://github.com/CyDrops",
+            url: "https://github.com/jb-moya",
             classNames:
                 "px-7 font-bold shadow-md gradient-background text-custom-static-1",
             iconClassNames: "mr-1",
@@ -76,7 +76,7 @@ export default function Home() {
         {
             text: "linkedIn",
             icon: <FaLinkedin size={20} />,
-            url: "https://www.linkedin.com/in/jb-vhert-moya-b939182b9/",
+            url: "https://www.linkedin.com/in/jb-vhert-moya-b939182b9",
             classNames: "px-2 border hover:bg-custom-bg-2 gradient-border",
             iconClassNames: "mr-1",
         },
@@ -97,7 +97,7 @@ export default function Home() {
     ];
 
     return (
-        <section className="flex flex-col text-custom-content-1  items-center justify-between mx-auto">
+        <section className="flex flex-col text-custom-content-1 items-center justify-between mx-auto">
             <div id="home" ref={sectionRef}></div>
             <div className="w-full  h-[720px] items-center  my-auto flex space-x-4 space-y-4 justify-center">
                 <div className="text-center flex">

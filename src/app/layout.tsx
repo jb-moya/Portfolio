@@ -53,7 +53,7 @@ export default function RootLayout({
                     </svg>
                 </div>
 
-                <div className="w-full">
+                <div className="w-full px-4 sm:px-0">
                     <StoreProvider>
                         <Navbar />
                         <main

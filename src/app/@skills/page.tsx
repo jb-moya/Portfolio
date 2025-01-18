@@ -15,7 +15,11 @@ import JavaScriptIcon from "../assets/javascript.svg";
 import ReactIcon from "../assets/react.svg";
 import CssIcon from "../assets/css.svg";
 import FirebaseIcon from "../assets/firebase.svg";
+import PythonIcon from "../assets/python.svg";
 import ChakraIcon from "../assets/chakra.svg";
+import Vercel from "../assets/vercel.svg";
+import CPlusPlus from "../assets/cplusplus.svg";
+import Github from "../assets/github.svg";
 import Image from "next/image";
 import classNames from "classnames";
 
@@ -57,12 +61,16 @@ const skills: Skill[] = [
     { SvgIcon: TypeScriptIcon, name: "Typescript" },
     { SvgIcon: ReactIcon, name: "React" },
     { SvgIcon: NodeJsIcon, name: "NodeJs" },
-    { SvgIcon: NextjsIcon, name: "NextJs" },
+    { SvgIcon: PythonIcon, name: "Python" },
+    { SvgIcon: CPlusPlus, name: "C++" },
+    // { SvgIcon: NextjsIcon, name: "NextJs" },
     { SvgIcon: MongoDbIcon, name: "MongoDB" },
     { SvgIcon: SassIcon, name: "Sass" },
     { Icon: SiChakraui, IconClassName: "w-14 text-teal-300", name: "ChakraUI" },
     { SvgIcon: TailwindIcon, name: "Tailwind" },
     { SvgIcon: FirebaseIcon, name: "Firebase" },
+    { SvgIcon: Vercel, name: "Vercel" },
+    { SvgIcon: Github, name: "Github" },
 ];
 
 export default function SkillsPage() {
@@ -71,7 +79,7 @@ export default function SkillsPage() {
     });
 
     return (
-        <section className="transition-colors h-96">
+        <section className="transition-colors">
             {sectionHeading({
                 id: "skills",
                 firstSectionName: "My",
