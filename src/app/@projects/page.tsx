@@ -81,7 +81,7 @@ export default function ProjectPage() {
                 "/fish-game-images/fish-4.gif",
             ],
             websiteLink:
-                "https://schooling-predator-fish-simulator-game.vercel.app/",
+                "https://jb-moya.github.io/Schooling-Predator-Fish-Simulator-Game/",
             githubLink:
                 "https://github.com/jb-moya/Schooling-Predator-Fish-Simulator-Game",
         },
