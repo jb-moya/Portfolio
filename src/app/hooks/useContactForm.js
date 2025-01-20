@@ -1,4 +1,6 @@
 import { useState } from "react";
+import dotenv from "dotenv";
+dotenv.config();
 
 const useContactForm = () => {
     const [formData, setFormData] = useState({
@@ -25,15 +27,19 @@ const useContactForm = () => {
 
         try {
             // Make the POST request to the API route
-            const res = await fetch("http://localhost:3000/api/send-email", {
-                method: "POST",
-                body: JSON.stringify(formData),
-                headers: {
-                    Accept: "application/json",
-                },
-            });
+            // const res = await fetch("http://localhost:3000/api/send-email", {
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/send-email`,
+                {
+                    method: "POST",
+                    body: JSON.stringify(formData),
+                    headers: {
+                        Accept: "application/json",
+                    },
+                }
+            );
 
-            console.log("🚀 ~ handleSubmit ~ res:", res)
+            console.log("🚀 ~ handleSubmit ~ res:", res);
 
             // const data = await res.json();
 
