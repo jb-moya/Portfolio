@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import Image from "next/image";
 import profile from "./assets/cherry.jpg";
-import profile2 from "./assets/rick.webp";
+import profile2 from "./assets/profile.png";
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -89,7 +89,8 @@ export default function Home() {
         // },
         {
             text: "get my resume",
-            url: "https://www.indeed.com/career-advice/career-development/how-to-become-a-full-stack-developer",
+            downloadable: true,
+            url: "/moya-resume.pdf",
             classNames:
                 "p-0 m-0 hover:border-b border-b-custom-bg-2 border-opacity-0 hover:border-opacity-100",
             openPageIcon: true,
@@ -130,6 +131,7 @@ export default function Home() {
                                         )}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        download={item?.downloadable || false}
                                         href={item.url}
                                     >
                                         <span className={item.iconClassNames}>
