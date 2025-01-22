@@ -38,13 +38,13 @@ export default function ContactsPage() {
                                 <input
                                     type="text"
                                     required
-                                    className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
+                                    className="w-full bg-transparent pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                     id="name"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
                                 />
-                                <div className="left-0 font-thin text-custom-opp-bg-1 -top-0 p-1 absolute">
+                                <div className="left-0 text-custom-opp-bg-1 -top-0 p-1 absolute">
                                     name
                                 </div>
                             </div>
@@ -56,22 +56,22 @@ export default function ContactsPage() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
+                                    className="w-full bg-transparent pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                 />
-                                <div className="left-0 font-thin text-custom-opp-bg-1 -top-0 p-1 absolute">
+                                <div className="left-0 text-custom-opp-bg-1 -top-0 p-1 absolute">
                                     email
                                 </div>
                             </div>
                             <div className="relative pb-2">
                                 <textarea
                                     rows={1}
-                                    className="w-full bg-custom-bg-1/50 pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
+                                    className="w-full bg-transparent pt-8 border-b border-b-custom-opp-bg-1 border-opacity-30 px-4"
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
                                 />
-                                <div className="left-0 font-thin text-custom-opp-bg-1 -top-0 p-1 absolute">
+                                <div className="left-0 text-custom-opp-bg-1 -top-0 p-1 absolute">
                                     what&apos;s on your mind?
                                 </div>
                             </div>

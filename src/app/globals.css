@@ -196,25 +196,25 @@
         --opp-content-2: 101 55 31;
 
         --mix-blend-mode: multiply;
-        --bg-color: hsla(32, 23%, 12%, 1);
+        --bg-color: rgb(14, 20, 33); /* A deep blue base */
         --bg-image: radial-gradient(
                 at 0% 29%,
-                hsla(23, 56%, 50%, 0.13) 0px,
+                hsla(220, 63%, 9%, 0.2) 0px,
                 transparent 50%
             ),
             radial-gradient(
                 at 90% 42%,
-                hsla(17, 61%, 40%, 0.16) 0px,
+                hsla(215, 55%, 35%, 0.25) 0px,
                 transparent 50%
             ),
             radial-gradient(
                 at 53% 95%,
-                hsla(19, 53%, 25%, 0.36) 0px,
+                hsla(210, 50%, 11%, 0.4) 0px,
                 transparent 50%
             ),
             radial-gradient(
                 at 39% 0%,
-                hsla(17, 61%, 40%, 0.14) 0px,
+                hsla(216, 44%, 12%, 0.18) 0px,
                 transparent 50%
             );
 

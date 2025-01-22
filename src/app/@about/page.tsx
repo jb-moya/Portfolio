@@ -44,7 +44,7 @@ export default function AboutPage() {
                                 Manila
                             </span>
                             <span className="ml-3 text-sm">
-                                Aug 2022 - Aug 2025
+                                Aug 2021 - Aug 2025
                             </span>
                         </div>
                         <span className="">Bachelor - Computer Science</span>
