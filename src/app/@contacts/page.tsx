@@ -10,6 +10,7 @@ export default function ContactsPage() {
         formData,
         isSubmitting,
         responseMessage,
+        hasError,
         handleChange,
         handleSubmit,
     } = useContactForm();
@@ -91,7 +92,14 @@ export default function ContactsPage() {
                     </button>
 
                     {responseMessage && (
-                        <div className="mt-5 border border-red-700 p-2 text-red-400">
+                        <div
+                            className={clsx(
+                                "mt-5 p-2",
+                                hasError
+                                    ? "border border-red-700 text-red-400"
+                                    : "border border-green-700 text-green-400"
+                            )}
+                        >
                             <p>{responseMessage}</p>
                         </div>
                     )}

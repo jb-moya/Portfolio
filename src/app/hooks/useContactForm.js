@@ -10,6 +10,7 @@ const useContactForm = () => {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [hasError, setHasError] = useState(false);
     const [responseMessage, setResponseMessage] = useState("");
 
     const handleChange = (e) => {
@@ -23,6 +24,7 @@ const useContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setHasError(false);
         setResponseMessage("");
 
         try {
@@ -45,12 +47,15 @@ const useContactForm = () => {
 
             if (res.ok) {
                 setResponseMessage("Email sent successfully!");
+                setHasError(false);
             } else {
                 setResponseMessage(`Failed to send email: ${res.statusText}`);
+                setHasError(true);
                 // setResponseMessage(`Failed to send email: ${data.message}`);
             }
         } catch (error) {
             setResponseMessage(`Error: ${error.message}`);
+            setHasError(true);
         } finally {
             setIsSubmitting(false);
         }
@@ -60,6 +65,7 @@ const useContactForm = () => {
         formData,
         isSubmitting,
         responseMessage,
+        hasError,
         handleChange,
         handleSubmit,
     };
