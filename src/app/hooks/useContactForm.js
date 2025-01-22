@@ -27,6 +27,11 @@ const useContactForm = () => {
         setHasError(false);
         setResponseMessage("");
 
+        const updateFormData = {
+            ...formData,
+            message: `From ${formData.email} : ${formData.message}`,
+        };
+
         try {
             // Make the POST request to the API route
             // const res = await fetch("http://localhost:3000/api/send-email", {
