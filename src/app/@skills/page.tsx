@@ -16,10 +16,12 @@ import ReactIcon from "../assets/react.svg";
 import CssIcon from "../assets/css.svg";
 import FirebaseIcon from "../assets/firebase.svg";
 import PythonIcon from "../assets/python.svg";
-import ChakraIcon from "../assets/chakra.svg";
 import Vercel from "../assets/vercel.svg";
 import CPlusPlus from "../assets/cplusplus.svg";
 import Github from "../assets/github.svg";
+import Docker from "../assets/docker.svg";
+import Postman from "../assets/postman.svg";
+import PostgreSql from "../assets/postgresql.svg";
 import Image from "next/image";
 import classNames from "classnames";
 
@@ -63,9 +65,12 @@ const skills: Skill[] = [
     { SvgIcon: NodeJsIcon, name: "NodeJs" },
     { SvgIcon: PythonIcon, name: "Python" },
     { SvgIcon: CPlusPlus, name: "C++" },
-    // { SvgIcon: NextjsIcon, name: "NextJs" },
+    { SvgIcon: NextjsIcon, name: "NextJs" },
     { SvgIcon: MongoDbIcon, name: "MongoDB" },
     { SvgIcon: SassIcon, name: "Sass" },
+    { SvgIcon: Docker, name: "Docker" },
+    { SvgIcon: Postman, name: "Postman" },
+    { SvgIcon: PostgreSql, name: "PostgreSQL" },
     { Icon: SiChakraui, IconClassName: "w-14 text-teal-300", name: "ChakraUI" },
     { SvgIcon: TailwindIcon, name: "Tailwind" },
     { SvgIcon: FirebaseIcon, name: "Firebase" },
