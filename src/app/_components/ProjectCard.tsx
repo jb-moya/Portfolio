@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import TechBadge from "./TechBadge";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";
 import Carousel from "./ui/carousel";
+import clsx from "clsx";
 
 const Card = ({
     title,
@@ -22,9 +24,44 @@ const Card = ({
     githubLink?: string;
     images?: string[];
 }) => {
+    const containerRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        const containerRefCurrent = containerRef.current;
+
+        if (containerRefCurrent) {
+            observer.observe(containerRefCurrent);
+        }
+
+        return () => {
+            if (containerRefCurrent) observer.unobserve(containerRefCurrent);
+        };
+    }, []);
+
+    const fadeInClass = isVisible
+        ? "animate-[fadeInRight_800ms_cubic-bezier(.5,0,.5,1)_25ms_forwards]"
+        : "";
+
     return (
         <>
-            <article className="w-full">
+            {/* <article className="w-full opacity-0"> */}
+            <article
+                className={clsx(fadeInClass, "w-full opacity-0")}
+                ref={containerRef}
+            >
                 <div className="relative h-96 overflow-visible">
                     <Carousel
                         images={images || []}

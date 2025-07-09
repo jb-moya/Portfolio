@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SiChakraui } from "react-icons/si";
 import { useSectionObserver } from "../_components/navbarSectionObserver";
 import { IconType } from "react-icons";
@@ -25,22 +25,58 @@ import PostgreSql from "../assets/postgresql.svg";
 import Image from "next/image";
 import classNames from "classnames";
 
+// const SkillIcon = ({
+//     Icon,
+//     SvgIcon,
+//     name,
+//     SvgIconClassName,
+//     IconClassName,
+// }: {
+//     Icon?: IconType;
+//     SvgIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+//     name: String;
+//     SvgIconClassName?: String;
+//     IconClassName?: string;
+// }) => (
+//     <div className="w-20 h-20 mx-2 flex flex-col justify-center items-center mt-4">
+//         {Icon && <Icon className={classNames(`w-14 h-14 ${IconClassName}`)} />}
+
+//         {SvgIcon && <SvgIcon className={`w-14 h-14 ${SvgIconClassName}`} />}
+//         <div className="mt-2 text-sm">{name}</div>
+//     </div>
+// );
+
 const SkillIcon = ({
     Icon,
     SvgIcon,
     name,
     SvgIconClassName,
     IconClassName,
+    delay,
+    isVisible,
 }: {
     Icon?: IconType;
     SvgIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
     name: String;
     SvgIconClassName?: String;
     IconClassName?: string;
+    delay?: number;
+    isVisible?: boolean;
 }) => (
-    <div className="w-20 h-20 mx-2 flex flex-col justify-center items-center mt-4">
+    <div
+        className={classNames(
+            "w-20 h-20 mx-2 flex flex-col justify-center items-center mt-4 opacity-0",
+            {
+                "animate-[fadeInRight_400ms_cubic-bezier(.3,0,0,1)_25ms_forwards]":
+                    isVisible,
+            }
+        )}
+        style={{
+            animationDelay: `${delay ?? 0}ms`,
+            animationFillMode: "forwards",
+        }}
+    >
         {Icon && <Icon className={classNames(`w-14 h-14 ${IconClassName}`)} />}
-
         {SvgIcon && <SvgIcon className={`w-14 h-14 ${SvgIconClassName}`} />}
         <div className="mt-2 text-sm">{name}</div>
     </div>
@@ -83,6 +119,27 @@ export default function SkillsPage() {
         sectionName: "Skills",
     });
 
+    const iconsContainerRef = useRef<HTMLDivElement>(null);
+    const [iconsVisible, setIconsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIconsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (iconsContainerRef.current) {
+            observer.observe(iconsContainerRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <section className="transition-colors">
             {sectionHeading({
@@ -91,7 +148,11 @@ export default function SkillsPage() {
                 secondSectionName: "Skills",
                 sectionRef: sectionRef,
             })}
-            <div className="w-full p-2 flex text-center justify-center text-custom-content-2 flex-wrap">
+
+            <div
+                ref={iconsContainerRef}
+                className="w-full p-2 flex text-center justify-center text-custom-content-2 flex-wrap"
+            >
                 {skills.map((item, index) => (
                     <SkillIcon
                         key={index}
@@ -99,6 +160,9 @@ export default function SkillsPage() {
                         Icon={item.Icon}
                         name={item.name}
                         IconClassName={item.IconClassName}
+                        SvgIconClassName={item.SvgIconClassName}
+                        delay={Math.pow(index, 1.5) * 40} // ease-in delay
+                        isVisible={iconsVisible}
                     />
                 ))}
             </div>

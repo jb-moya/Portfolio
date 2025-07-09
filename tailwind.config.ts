@@ -108,7 +108,7 @@ const config: Config = {
                     },
                 },
 
-                "fade-in-top": {
+                fadeInTop: {
                     "0%": {
                         transform: "translateY(-10px)",
                         opacity: "0",
@@ -124,8 +124,7 @@ const config: Config = {
                 wiggle: "wiggle 6s ease-in-out infinite",
                 customBounce: "customBounce 2s ease-in-out infinite",
                 fadeInRight: "fadeInRight 1.5s cubic-bezier(.9,.1,.1,.9) both",
-
-                "fade-in-top": "fade-in-top 1s cubic-bezier(.9,.1,.1,.9) both",
+                fadeInTop: "fadeInTop 1s cubic-bezier(.9,.1,.1,.9) both",
             },
 
             fontFamily: {
