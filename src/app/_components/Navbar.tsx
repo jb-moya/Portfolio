@@ -63,6 +63,10 @@ const Navbar = ({ useFooter = false }: { useFooter?: boolean }) => {
             name: "Home",
             href: "#home",
         },
+        experience: {
+            name: "Experience",
+            href: "#experience",
+        },
         about: {
             name: "About",
             href: "#about",

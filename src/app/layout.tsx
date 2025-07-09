@@ -13,12 +13,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
+    experience,
     about,
     skills,
     projects,
     contacts,
 }: {
     children: ReactNode;
+    experience: ReactNode;
     about: ReactNode;
     skills: ReactNode;
     projects: ReactNode;
@@ -38,8 +40,6 @@ export default function RootLayout({
             data-theme="dark"
         >
             <body className="">
-                {/* <rect width="100%" height="100%" filter="url(#noiseFilter)" /> */}
-                {/* viewBox="0 0 300 300"  */}
                 <div className="noise">
                     <svg xmlns="http://www.w3.org/2000/svg">
                         <filter id="noiseFilter">
@@ -62,13 +62,12 @@ export default function RootLayout({
                             )}
                         >
                             {children}
+                            {experience}
                             {about}
                             {skills}
                             {projects}
                             {contacts}
                         </main>
-
-                        {/* <Navbar useFooter /> */}
                     </StoreProvider>
                 </div>
             </body>

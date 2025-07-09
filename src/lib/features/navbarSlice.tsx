@@ -12,6 +12,7 @@ interface NavbarState {
 const initialState: NavbarState = {
     menuStates: {
         Home: false,
+        Experience: false,
         About: false,
         Skills: false,
         Projects: false,
